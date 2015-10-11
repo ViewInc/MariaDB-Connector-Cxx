@@ -1,0 +1,123 @@
+\hypertarget{class_row}{}\section{Row Class Reference}
+\label{class_row}\index{Row@{Row}}
+
+
+{\ttfamily \#include $<$Result.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{class_row_a350878bd7c71889d2e532231b9d9da24}{Get\+Field\+Count} ()
+\item 
+\hyperlink{class_field}{Field} $\ast$ \hyperlink{class_row_a730f5847a857b319d9b373a7a6ed82a0}{Get\+Field} (unsigned int Index)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_row_a5cca50abc389396e26ec68cbd3fb6596}{Row} ()
+\item 
+\hyperlink{class_row_ad58cd118e1b179f9e2f623ee2f0f69e5}{Row} (struct st\+\_\+mysql\+\_\+res $\ast$My\+Result, char $\ast$$\ast$My\+Row)
+\item 
+virtual \hyperlink{class_row_a8cc0869c91dc94ee595069309ba15690}{$\sim$\+Row} ()
+\item 
+\hyperlink{class_row_a755d8df726c1c60fdd13b9bad0eed2bc}{Row} (\hyperlink{class_row}{Row} const \&Other)
+\item 
+\hyperlink{class_row}{Row} \& \hyperlink{class_row_af707c3826bcf446fe94b82397cd063d9}{operator=} (\hyperlink{class_row}{Row} const \&Other)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{class_row_a303b42c6d6097886d385c30596c7e6ee}{Field\+Count}
+\item 
+\hyperlink{class_field}{Field} $\ast$ \hyperlink{class_row_aaf5629269051fae24fbe8a4063d4375b}{Fields}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_row_aeda2b0238e1d97468018d291a2180853}{Result}
+\item 
+class \hyperlink{class_row_adab6e13caeb507948d0ee0b059b1a1af}{Statement}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The row. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_row_a5cca50abc389396e26ec68cbd3fb6596}{}\index{Row@{Row}!Row@{Row}}
+\index{Row@{Row}!Row@{Row}}
+\subsubsection[{Row()}]{\setlength{\rightskip}{0pt plus 5cm}Row\+::\+Row (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_row_a5cca50abc389396e26ec68cbd3fb6596}
+\hypertarget{class_row_ad58cd118e1b179f9e2f623ee2f0f69e5}{}\index{Row@{Row}!Row@{Row}}
+\index{Row@{Row}!Row@{Row}}
+\subsubsection[{Row(struct st\+\_\+mysql\+\_\+res $\ast$\+My\+Result, char $\ast$$\ast$\+My\+Row)}]{\setlength{\rightskip}{0pt plus 5cm}Row\+::\+Row (
+\begin{DoxyParamCaption}
+\item[{struct st\+\_\+mysql\+\_\+res $\ast$}]{My\+Result, }
+\item[{char $\ast$$\ast$}]{My\+Row}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_row_ad58cd118e1b179f9e2f623ee2f0f69e5}
+\hypertarget{class_row_a8cc0869c91dc94ee595069309ba15690}{}\index{Row@{Row}!````~Row@{$\sim$\+Row}}
+\index{````~Row@{$\sim$\+Row}!Row@{Row}}
+\subsubsection[{$\sim$\+Row()}]{\setlength{\rightskip}{0pt plus 5cm}Row\+::$\sim$\+Row (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_row_a8cc0869c91dc94ee595069309ba15690}
+\hypertarget{class_row_a755d8df726c1c60fdd13b9bad0eed2bc}{}\index{Row@{Row}!Row@{Row}}
+\index{Row@{Row}!Row@{Row}}
+\subsubsection[{Row(\+Row const \&\+Other)}]{\setlength{\rightskip}{0pt plus 5cm}Row\+::\+Row (
+\begin{DoxyParamCaption}
+\item[{{\bf Row} const \&}]{Other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_row_a755d8df726c1c60fdd13b9bad0eed2bc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_row_a730f5847a857b319d9b373a7a6ed82a0}{}\index{Row@{Row}!Get\+Field@{Get\+Field}}
+\index{Get\+Field@{Get\+Field}!Row@{Row}}
+\subsubsection[{Get\+Field(unsigned int Index)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field} $\ast$ Row\+::\+Get\+Field (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{Index}
+\end{DoxyParamCaption}
+)}\label{class_row_a730f5847a857b319d9b373a7a6ed82a0}
+\hypertarget{class_row_a350878bd7c71889d2e532231b9d9da24}{}\index{Row@{Row}!Get\+Field\+Count@{Get\+Field\+Count}}
+\index{Get\+Field\+Count@{Get\+Field\+Count}!Row@{Row}}
+\subsubsection[{Get\+Field\+Count()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Row\+::\+Get\+Field\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_row_a350878bd7c71889d2e532231b9d9da24}
+\hypertarget{class_row_af707c3826bcf446fe94b82397cd063d9}{}\index{Row@{Row}!operator=@{operator=}}
+\index{operator=@{operator=}!Row@{Row}}
+\subsubsection[{operator=(\+Row const \&\+Other)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Row} \& Row\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Row} const \&}]{Other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_row_af707c3826bcf446fe94b82397cd063d9}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_row_aeda2b0238e1d97468018d291a2180853}{}\index{Row@{Row}!Result@{Result}}
+\index{Result@{Result}!Row@{Row}}
+\subsubsection[{Result}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Result}\hspace{0.3cm}{\ttfamily [friend]}}\label{class_row_aeda2b0238e1d97468018d291a2180853}
+\hypertarget{class_row_adab6e13caeb507948d0ee0b059b1a1af}{}\index{Row@{Row}!Statement@{Statement}}
+\index{Statement@{Statement}!Row@{Row}}
+\subsubsection[{Statement}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Statement}\hspace{0.3cm}{\ttfamily [friend]}}\label{class_row_adab6e13caeb507948d0ee0b059b1a1af}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_row_a303b42c6d6097886d385c30596c7e6ee}{}\index{Row@{Row}!Field\+Count@{Field\+Count}}
+\index{Field\+Count@{Field\+Count}!Row@{Row}}
+\subsubsection[{Field\+Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Row\+::\+Field\+Count\hspace{0.3cm}{\ttfamily [protected]}}\label{class_row_a303b42c6d6097886d385c30596c7e6ee}
+\hypertarget{class_row_aaf5629269051fae24fbe8a4063d4375b}{}\index{Row@{Row}!Fields@{Fields}}
+\index{Fields@{Fields}!Row@{Row}}
+\subsubsection[{Fields}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field}$\ast$ Row\+::\+Fields\hspace{0.3cm}{\ttfamily [protected]}}\label{class_row_aaf5629269051fae24fbe8a4063d4375b}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_result_8h}{Result.\+h}\item 
+src/\hyperlink{_result_8cpp}{Result.\+cpp}\end{DoxyCompactItemize}

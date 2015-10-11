@@ -1,0 +1,146 @@
+\hypertarget{class_bind}{}\section{Bind Class Reference}
+\label{class_bind}\index{Bind@{Bind}}
+
+
+{\ttfamily \#include $<$Statement.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bind_a375a86fb5ed134c1efbe962ebbfb3438}{Bind} ()
+\item 
+virtual \hyperlink{class_bind_a048901534135494cc4028db67168e3d3}{$\sim$\+Bind} ()
+\item 
+void \hyperlink{class_bind_a29531ab84e495311ef5b99368cc9d439}{Set\+Input} (\hyperlink{struct_s_q_l___t_y_p_e_a2ad43c0413d655b655c3b5ca694d1963}{S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value} Type, void const $\ast$Buffer, unsigned long Length)
+\item 
+void \hyperlink{class_bind_aef30a42e1e5d65d1cee929a12aa34e29}{Set\+Output} (\hyperlink{struct_s_q_l___t_y_p_e_a2ad43c0413d655b655c3b5ca694d1963}{S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value} Type, unsigned long Length)
+\item 
+void const $\ast$ \hyperlink{class_bind_a9dd755bde0d7c5ab532168d04d68151e}{Get\+Data} ()
+\item 
+unsigned long \hyperlink{class_bind_af56024d975f5fc2829241f9b1b220a58}{Get\+Length} ()
+\item 
+bool \hyperlink{class_bind_affbf612b9398e0c09b562824c3b4235c}{Is\+Null} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_bind_a097a2622756ecbc58096a167f6d49444}{Create} (struct st\+\_\+mysql\+\_\+bind $\ast$My\+Bind)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{class_bind_a7d807b74fa3ceb651605e24050b5a268}{Data}
+\item 
+\hyperlink{struct_s_q_l___t_y_p_e_a2ad43c0413d655b655c3b5ca694d1963}{S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value} \hyperlink{class_bind_af56079d7e7b1d85c87bd00f66d997fdf}{Data\+Type}
+\item 
+unsigned long \hyperlink{class_bind_a4f93640ee287565657a0c646ba541449}{Length\+Input}
+\item 
+unsigned long \hyperlink{class_bind_aa47b0ebce3918a7a3d82c7aac91baa54}{Length\+Output}
+\item 
+char \hyperlink{class_bind_ab550a5976b3cc873d3cc38e70466e3d9}{b\+Is\+Null\+Output}
+\item 
+bool \hyperlink{class_bind_a0b7f3a32f4168bea439c6f253c60dfe7}{b\+Is\+Input}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_bind_adab6e13caeb507948d0ee0b059b1a1af}{Statement}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_bind_a375a86fb5ed134c1efbe962ebbfb3438}{}\index{Bind@{Bind}!Bind@{Bind}}
+\index{Bind@{Bind}!Bind@{Bind}}
+\subsubsection[{Bind()}]{\setlength{\rightskip}{0pt plus 5cm}Bind\+::\+Bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_bind_a375a86fb5ed134c1efbe962ebbfb3438}
+\hypertarget{class_bind_a048901534135494cc4028db67168e3d3}{}\index{Bind@{Bind}!````~Bind@{$\sim$\+Bind}}
+\index{````~Bind@{$\sim$\+Bind}!Bind@{Bind}}
+\subsubsection[{$\sim$\+Bind()}]{\setlength{\rightskip}{0pt plus 5cm}Bind\+::$\sim$\+Bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_bind_a048901534135494cc4028db67168e3d3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_bind_a097a2622756ecbc58096a167f6d49444}{}\index{Bind@{Bind}!Create@{Create}}
+\index{Create@{Create}!Bind@{Bind}}
+\subsubsection[{Create(struct st\+\_\+mysql\+\_\+bind $\ast$\+My\+Bind)}]{\setlength{\rightskip}{0pt plus 5cm}void Bind\+::\+Create (
+\begin{DoxyParamCaption}
+\item[{struct st\+\_\+mysql\+\_\+bind $\ast$}]{My\+Bind}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_a097a2622756ecbc58096a167f6d49444}
+\hypertarget{class_bind_a9dd755bde0d7c5ab532168d04d68151e}{}\index{Bind@{Bind}!Get\+Data@{Get\+Data}}
+\index{Get\+Data@{Get\+Data}!Bind@{Bind}}
+\subsubsection[{Get\+Data()}]{\setlength{\rightskip}{0pt plus 5cm}void const $\ast$ Bind\+::\+Get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bind_a9dd755bde0d7c5ab532168d04d68151e}
+\hypertarget{class_bind_af56024d975f5fc2829241f9b1b220a58}{}\index{Bind@{Bind}!Get\+Length@{Get\+Length}}
+\index{Get\+Length@{Get\+Length}!Bind@{Bind}}
+\subsubsection[{Get\+Length()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Bind\+::\+Get\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bind_af56024d975f5fc2829241f9b1b220a58}
+\hypertarget{class_bind_affbf612b9398e0c09b562824c3b4235c}{}\index{Bind@{Bind}!Is\+Null@{Is\+Null}}
+\index{Is\+Null@{Is\+Null}!Bind@{Bind}}
+\subsubsection[{Is\+Null()}]{\setlength{\rightskip}{0pt plus 5cm}bool Bind\+::\+Is\+Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bind_affbf612b9398e0c09b562824c3b4235c}
+\hypertarget{class_bind_a29531ab84e495311ef5b99368cc9d439}{}\index{Bind@{Bind}!Set\+Input@{Set\+Input}}
+\index{Set\+Input@{Set\+Input}!Bind@{Bind}}
+\subsubsection[{Set\+Input(\+S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value Type, void const $\ast$\+Buffer, unsigned long Length)}]{\setlength{\rightskip}{0pt plus 5cm}void Bind\+::\+Set\+Input (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value}}]{Type, }
+\item[{void const $\ast$}]{Buffer, }
+\item[{unsigned long}]{Length}
+\end{DoxyParamCaption}
+)}\label{class_bind_a29531ab84e495311ef5b99368cc9d439}
+\hypertarget{class_bind_aef30a42e1e5d65d1cee929a12aa34e29}{}\index{Bind@{Bind}!Set\+Output@{Set\+Output}}
+\index{Set\+Output@{Set\+Output}!Bind@{Bind}}
+\subsubsection[{Set\+Output(\+S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value Type, unsigned long Length)}]{\setlength{\rightskip}{0pt plus 5cm}void Bind\+::\+Set\+Output (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value}}]{Type, }
+\item[{unsigned long}]{Length}
+\end{DoxyParamCaption}
+)}\label{class_bind_aef30a42e1e5d65d1cee929a12aa34e29}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_bind_adab6e13caeb507948d0ee0b059b1a1af}{}\index{Bind@{Bind}!Statement@{Statement}}
+\index{Statement@{Statement}!Bind@{Bind}}
+\subsubsection[{Statement}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Statement}\hspace{0.3cm}{\ttfamily [friend]}}\label{class_bind_adab6e13caeb507948d0ee0b059b1a1af}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_bind_a0b7f3a32f4168bea439c6f253c60dfe7}{}\index{Bind@{Bind}!b\+Is\+Input@{b\+Is\+Input}}
+\index{b\+Is\+Input@{b\+Is\+Input}!Bind@{Bind}}
+\subsubsection[{b\+Is\+Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Bind\+::b\+Is\+Input\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_a0b7f3a32f4168bea439c6f253c60dfe7}
+\hypertarget{class_bind_ab550a5976b3cc873d3cc38e70466e3d9}{}\index{Bind@{Bind}!b\+Is\+Null\+Output@{b\+Is\+Null\+Output}}
+\index{b\+Is\+Null\+Output@{b\+Is\+Null\+Output}!Bind@{Bind}}
+\subsubsection[{b\+Is\+Null\+Output}]{\setlength{\rightskip}{0pt plus 5cm}char Bind\+::b\+Is\+Null\+Output\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_ab550a5976b3cc873d3cc38e70466e3d9}
+\hypertarget{class_bind_a7d807b74fa3ceb651605e24050b5a268}{}\index{Bind@{Bind}!Data@{Data}}
+\index{Data@{Data}!Bind@{Bind}}
+\subsubsection[{Data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Bind\+::\+Data\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_a7d807b74fa3ceb651605e24050b5a268}
+\hypertarget{class_bind_af56079d7e7b1d85c87bd00f66d997fdf}{}\index{Bind@{Bind}!Data\+Type@{Data\+Type}}
+\index{Data\+Type@{Data\+Type}!Bind@{Bind}}
+\subsubsection[{Data\+Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+Q\+L\+\_\+\+T\+Y\+P\+E\+::\+Value} Bind\+::\+Data\+Type\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_af56079d7e7b1d85c87bd00f66d997fdf}
+\hypertarget{class_bind_a4f93640ee287565657a0c646ba541449}{}\index{Bind@{Bind}!Length\+Input@{Length\+Input}}
+\index{Length\+Input@{Length\+Input}!Bind@{Bind}}
+\subsubsection[{Length\+Input}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Bind\+::\+Length\+Input\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_a4f93640ee287565657a0c646ba541449}
+\hypertarget{class_bind_aa47b0ebce3918a7a3d82c7aac91baa54}{}\index{Bind@{Bind}!Length\+Output@{Length\+Output}}
+\index{Length\+Output@{Length\+Output}!Bind@{Bind}}
+\subsubsection[{Length\+Output}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long Bind\+::\+Length\+Output\hspace{0.3cm}{\ttfamily [protected]}}\label{class_bind_aa47b0ebce3918a7a3d82c7aac91baa54}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_statement_8h}{Statement.\+h}\item 
+src/\hyperlink{_statement_8cpp}{Statement.\+cpp}\end{DoxyCompactItemize}
