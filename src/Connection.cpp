@@ -99,11 +99,6 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 	return AffectedRows;
 }
 
-bool Connection::Execute(Statement* stmt)
-{
-	return true;
-}
-
 void Connection::ShowMySQLError(st_mysql* mysql, char const* call)
 {
 	fprintf(stderr, "%s: Error(%d) [%s] \"%s\"\n", call,

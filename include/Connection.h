@@ -52,12 +52,6 @@ public:
 	 */
 	int Query(char const* QueryStr, unsigned long Length, class Result* ResultOut);
 
-	/** Executes a prepared statement.
-	 *
-	 * @return Whether the query was successfull.
-	 */
-	bool Execute(class Statement* stmt);
-
 public:
 
 
