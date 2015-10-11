@@ -51,7 +51,7 @@ int main()
 For more examples, see the [`Tests.cpp`](https://github.com/Leandros/MariaDB-Connector-Cxx/blob/master/tests/Tests.cpp).
 
 # Contributing
-Feel free to contribute. 
+Feel free to contribute. A good start is to browse the ["help wanted"](https://github.com/Leandros/MariaDB-Connector-Cxx/labels/help%20wanted) tag, there are a few open issues I would love to see some contributions.
 
 # Author
 MariaDB Connector/C++ was written by [Arvid Gerstmann](https://github.com/Leandros).
