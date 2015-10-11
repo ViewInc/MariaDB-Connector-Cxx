@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['lengthinput',['LengthInput',['../class_bind.html#a4f93640ee287565657a0c646ba541449',1,'Bind']]],
-  ['lengthoutput',['LengthOutput',['../class_bind.html#aa47b0ebce3918a7a3d82c7aac91baa54',1,'Bind']]],
-  ['long',['LONG',['../struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963aa9de387473db2da347941ee443ee85d8',1,'SQL_TYPE']]]
+  ['mariadb_20connector_2fc_2b_2b',['MariaDB Connector/C++',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['mybindsin',['MyBindsIn',['../class_statement.html#aba9c9b66e160d22b83499dffbe553ab4',1,'Statement']]],
+  ['mybindsout',['MyBindsOut',['../class_statement.html#ab9e7e021c560025ec51bc8b7570e6f99',1,'Statement']]],
+  ['mysql',['MySQL',['../class_connection.html#a1a7ed2eaaab5159293008dea06dce9e8',1,'Connection']]],
+  ['mysqlcxx_2eh',['MySQLCXX.h',['../_my_s_q_l_c_x_x_8h.html',1,'']]],
+  ['mystatement',['MyStatement',['../class_statement.html#a8f0cd2a9619ceaee6cd157ce879b2f11',1,'Statement']]]
 ];

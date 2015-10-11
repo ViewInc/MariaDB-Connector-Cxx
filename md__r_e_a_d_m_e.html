@@ -98,10 +98,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h1>Usage</h1>
 <p>``` #include "MySQLCXX.h" #include &lt;stdio.h&gt; #include &lt;string.h&gt;</p>
-<p>int <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> { <a class="el" href="class_connection.html">Connection</a> Con; Con.Connect("localhost", "root", "root", NULL, 3306); if (Con.IsConnected()) { <a class="el" href="class_result.html">Result</a> Res; char const* query = SQL( SELECT <code>name</code>,<code>age</code> FROM <code>test</code>); int NumRows = Con-&gt;Query(query, strlen(query), &amp;Res); if (NumRows &gt; 0) { Row* Row0 = Res.GetRow(0); Field* Name = Row0-&gt;GetField(0); Field* Age = Row0-&gt;GetField(1); printf("%s is %d years old.\n", Name-&gt;AsString(), Age-&gt;AsUnsignedByte()); } }</p>
+<p>int main() { <a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a> Con; Con.Connect("localhost", "root", "root", NULL, 3306); if (Con.IsConnected()) { <a class="el" href="class_result.html" title="The result. ">Result</a> Res; char const* query = SQL( SELECT <code>name</code>,<code>age</code> FROM <code>test</code>); int NumRows = Con-&gt;Query(query, strlen(query), &amp;Res); if (NumRows &gt; 0) { Row* Row0 = Res.GetRow(0); Field* Name = Row0-&gt;GetField(0); Field* Age = Row0-&gt;GetField(1); printf("%s is %d years old.\n", Name-&gt;AsString(), Age-&gt;AsUnsignedByte()); } }</p>
 <p>return 0; } ``<code> For more examples, see the [</code>Tests.cpp`](<a href="https://github.com/Leandros/MariaDB-Connector-Cxx/blob/master/tests/Tests.cpp">https://github.com/Leandros/MariaDB-Connector-Cxx/blob/master/tests/Tests.cpp</a>).</p>
 <h1>Contributing</h1>
-<p>Feel free to contribute.</p>
+<p>Feel free to contribute. A good start is to browse the <a href="https://github.com/Leandros/MariaDB-Connector-Cxx/labels/help%20wanted">"help wanted"</a> tag, there are a few open issues I would love to see some contributions.</p>
 <h1>Author</h1>
 <p>MariaDB Connector/C++ was written by <a href="https://github.com/Leandros">Arvid Gerstmann</a>.</p>
 <h1>License</h1>

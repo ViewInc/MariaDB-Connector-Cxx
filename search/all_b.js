@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['noexcept',['NOEXCEPT',['../_types_8h.html#a10a59554805ac7ce3905fd3540f98137',1,'Types.h']]],
-  ['numbindsin',['NumBindsIn',['../class_statement.html#a596ea0debeeabfb4ee905dc75c0bcbe5',1,'Statement']]],
-  ['numbindsout',['NumBindsOut',['../class_statement.html#a5550223a6881e42d00973968fbdf2b9d',1,'Statement']]]
+  ['operator_3d',['operator=',['../class_field.html#a011a8dc1a8f459e83070f46edd24637c',1,'Field::operator=()'],['../class_row.html#af707c3826bcf446fe94b82397cd063d9',1,'Row::operator=()'],['../class_result.html#abb25eb344b66cd92d9d079dc19bc05e1',1,'Result::operator=()']]]
 ];
