@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['noexcept',['NOEXCEPT',['../_types_8h.html#a10a59554805ac7ce3905fd3540f98137',1,'Types.h']]]
+  ['sql',['SQL',['../_types_8h.html#adf031a3819e4fa28f69556f86d611fb1',1,'Types.h']]]
 ];
