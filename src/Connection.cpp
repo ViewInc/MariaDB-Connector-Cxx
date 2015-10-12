@@ -38,7 +38,7 @@ void Connection::Close()
 	if (bIsConnected)
 	{
 		mysql_close(MySQL);
-		MySQL = nullptr;
+		MySQL = NULL;
 	}
 }
 

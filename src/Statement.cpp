@@ -122,20 +122,28 @@ void Bind::Create(MYSQL_BIND* MyBind)
 
 
 Statement::Statement()
-	: Statement(nullptr)
+    : Query(NULL)
+    , Con(NULL)
+    , MyStatement(NULL)
+    , BindsIn(NULL)
+    , BindsOut(NULL)
+    , NumBindsIn(0)
+    , NumBindsOut(0)
+    , MyBindsIn(NULL)
+    , MyBindsOut(NULL)
 {
 }
 
 Statement::Statement(Connection* ConIn)
-	: Query(nullptr)
+	: Query(NULL)
 	, Con(ConIn)
-	, MyStatement(nullptr)
-	, BindsIn(nullptr)
-	, BindsOut(nullptr)
+	, MyStatement(NULL)
+	, BindsIn(NULL)
+	, BindsOut(NULL)
 	, NumBindsIn(0)
 	, NumBindsOut(0)
-	, MyBindsIn(nullptr)
-	, MyBindsOut(nullptr)
+	, MyBindsIn(NULL)
+	, MyBindsOut(NULL)
 {
 }
 
@@ -282,7 +290,7 @@ bool Statement::Init(char const* QueryIn)
 		return false;
 	}
 
-	NumBindsIn = mysql_stmt_param_count(MyStatement);
+	NumBindsIn = (unsigned int)mysql_stmt_param_count(MyStatement);
 	if (NumBindsIn > 0)
 	{
 		BindsIn = (Bind*)malloc(sizeof(Bind) * NumBindsIn);
@@ -388,7 +396,7 @@ int Statement::FetchAll(Result* Res)
 		return -1;
 	}
 
-	unsigned int NumRows = mysql_stmt_num_rows(MyStatement);
+	unsigned int NumRows = (unsigned int)mysql_stmt_num_rows(MyStatement);
 	Res->RowCount = NumRows;
 	Res->bIsValid = true;
 	Res->Rows = (Row*)malloc(sizeof(Row) * NumRows);
@@ -406,6 +414,7 @@ int Statement::FetchAll(Result* Res)
 		{
 			Bind* out = GetBindOut(j);
 			Field* f = new(r->Fields + j) Field(out->DataType, out->Data, out->LengthOutput);
+            (void)f;
 		}
 	}
 

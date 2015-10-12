@@ -18,7 +18,7 @@ public:
 
 private:
 	Connection(Connection const& cpy){};
-	Connection& operator=(Connection const& cpy){};
+    Connection& operator=(Connection const& cpy){return *this;};
 
 public:
 

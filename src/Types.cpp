@@ -1,6 +1,6 @@
 #include "Types.h"
 
-#include "mariadb\mysql.h"
+#include "mariadb/mysql.h"
 
 int SQLTypeToMySQLType(SQL_TYPE::Value Type)
 {

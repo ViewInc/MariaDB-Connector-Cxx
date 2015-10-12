@@ -6,8 +6,13 @@
 #include "mariadb/mysql.h"
 
 Field::Field(char* MyField, unsigned long MyLength)
-	: Field(SQL_TYPE::STRING, MyField, MyLength)
 {
+    Data = malloc(MyLength + 1);
+    memcpy(Data, MyField, MyLength);
+    ((char*)Data)[MyLength] = '\0';
+
+    DataLength = MyLength;
+    DataType = SQL_TYPE::STRING;
 }
 
 Field::Field(SQL_TYPE::Value Type, void* MyField, unsigned long MyLength)

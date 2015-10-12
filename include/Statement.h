@@ -12,7 +12,7 @@ public:
 
 private:
 	Bind(Bind const& Other){}
-	Bind& operator=(Bind const& Other){}
+    Bind& operator=(Bind const& Other){return *this;}
 
 public:
 	void SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Length);
@@ -43,7 +43,7 @@ public:
 
 private:
 	Statement(Statement const& Other){}
-	Statement& operator=(Statement const& Other){}
+    Statement& operator=(Statement const& Other){return *this;}
 
 public:
 	bool Init(char const* Query);
