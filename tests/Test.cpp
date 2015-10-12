@@ -139,30 +139,40 @@ bool Test4_PreparedStatement(Connection* Con)
 	if (Weight->AsDouble() != 98.35)
 		return false;
 
+
+    char const* query1 = SQL(
+        INSERT INTO `test` (`name`, `age`, `salary`, `savings`, `height`, `weight`)
+        VALUES('Jane Doe', 41, 41000, -1338, 1.50, 50.35));
+    int AffectedRows1 = Con->Query(query1, strlen(query1));
+    if (AffectedRows1 != 1)
+        return false;
+
+    int id2 = 2;
+    Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id2, sizeof(int));
 	Stmt.Execute();
 	Stmt.Fetch();
 
-	if (strncmp((char*)Stmt.GetBindOut(0)->GetData(), "John Doe", Stmt.GetBindOut(0)->GetLength()) != 0)
+	if (strncmp((char*)Stmt.GetBindOut(0)->GetData(), "Jane Doe", Stmt.GetBindOut(0)->GetLength()) != 0)
 		return false;
 
 	unsigned char* Age1 = (unsigned char*)Stmt.GetBindOut(1)->GetData();
-	if (*Age1 != 42)
+	if (*Age1 != 41)
 		return false;
 
 	unsigned short* Salary1 = (unsigned short*)Stmt.GetBindOut(2)->GetData();
-	if (*Salary1 != 42000)
+	if (*Salary1 != 41000)
 		return false;
 
 	int* Savings1 = (int*)Stmt.GetBindOut(3)->GetData();
-	if (*Savings1 != -1337)
+	if (*Savings1 != -1338)
 		return false;
 
 	float* Height1 = (float*)Stmt.GetBindOut(4)->GetData();
-	if (*Height1 != 1.8f)
+	if (*Height1 != 1.5f)
 		return false;
 
 	double* Weight1 = (double*)Stmt.GetBindOut(5)->GetData();
-	if (*Weight1 != 98.35)
+	if (*Weight1 != 50.35)
 		return false;
 
 	return true;

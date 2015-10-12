@@ -319,25 +319,45 @@ bool Statement::Init(char const* QueryIn)
 	return true;
 }
 
-bool Statement::Prepare()
+bool Statement::BindIn()
 {
-	if (!BindsIn || !BindsOut) return false;
+    if (!BindsIn) return false;
+    if (MyBindsIn)
+        free(MyBindsIn);
 
-	MyBindsIn = (MYSQL_BIND*)malloc(sizeof(MYSQL_BIND) * NumBindsIn);
-	if (!BindsIn) exit(1);
+    MyBindsIn = (MYSQL_BIND*)malloc(sizeof(MYSQL_BIND) * NumBindsIn);
+    if (!MyBindsIn) exit(1);
+    memset(MyBindsIn, 0, sizeof(MYSQL_BIND) * NumBindsIn);
+
+    unsigned int CountIn = 0;
+    for (unsigned int i = 0; i < NumBindsIn; i++)
+    {
+        Bind* b = (BindsIn + i);
+        b->Create(MyBindsIn + CountIn);
+        CountIn++;
+    }
+
+    if (NumBindsIn > 0)
+    {
+        if (mysql_stmt_bind_param(MyStatement, MyBindsIn))
+        {
+            ShowMySQLStatementError(MyStatement, "mysql_stmt_bind_param()");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool Statement::BindOut()
+{
+	if (!BindsOut) return false;
+    if (MyBindsOut)
+        free(MyBindsOut);
+
 	MyBindsOut = (MYSQL_BIND*)malloc(sizeof(MYSQL_BIND) * NumBindsOut);
-	if (!BindsOut) exit(1);
-
-	memset(MyBindsIn, 0, sizeof(MYSQL_BIND) * NumBindsIn);
+	if (!MyBindsOut) exit(1);
 	memset(MyBindsOut, 0, sizeof(MYSQL_BIND) * NumBindsOut);
-
-	unsigned int CountIn = 0;
-	for (unsigned int i = 0; i < NumBindsIn; i++)
-	{
-		Bind* b = (BindsIn + i);
-		b->Create(MyBindsIn + CountIn);
-		CountIn++;
-	}
 
 	unsigned int CountOut = 0;
 	for (unsigned int i = 0; i < NumBindsOut; i++)
@@ -353,14 +373,6 @@ bool Statement::Prepare()
 		if (mysql_stmt_bind_result(MyStatement, MyBindsOut))
 		{
 			ShowMySQLStatementError(MyStatement, "mysql_stmt_bind_result()");
-			return false;
-		}
-	}
-	if (NumBindsIn > 0)
-	{
-		if (mysql_stmt_bind_param(MyStatement, MyBindsIn))
-		{
-			ShowMySQLStatementError(MyStatement, "mysql_stmt_bind_param()");
 			return false;
 		}
 	}

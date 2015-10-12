@@ -47,7 +47,8 @@ private:
 
 public:
 	bool Init(char const* Query);
-	bool Prepare();
+    bool BindIn();
+	bool BindOut();
 	bool Execute();
 	bool Fetch();
 	int FetchAll(class Result* Res);
