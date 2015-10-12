@@ -59,6 +59,8 @@ Bind::~Bind()
 
 void Bind::SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Length)
 {
+	if (Data) free(Data);
+
 	DataType = Type;
 	LengthInput = Length;
 	Data = malloc(Length);
@@ -70,6 +72,8 @@ void Bind::SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Leng
 
 void Bind::SetOutput(SQL_TYPE::Value Type, unsigned long Length)
 {
+	if (Data) free(Data);
+
 	DataType = Type;
 	LengthInput = Length;
 	Data = malloc(Length);
@@ -98,10 +102,10 @@ unsigned long Bind::GetLength()
 
 bool Bind::IsNull()
 {
-	return bIsNullOutput;
+	return bIsNullOutput == 0;
 }
 
-void Bind::Create(MYSQL_BIND* MyBind)
+void Bind::Update(MYSQL_BIND* MyBind)
 {
 	MyBind->buffer_type = (enum_field_types)SQLTypeToMySQLType(DataType);
 	MyBind->buffer = (void*)Data;
@@ -163,6 +167,8 @@ Statement::~Statement()
 
 	free(BindsIn);
 	free(BindsOut);
+	free(MyBindsIn);
+	free(MyBindsOut);
 	if (MyStatement)
 		mysql_stmt_close(MyStatement);
 }
@@ -293,6 +299,7 @@ bool Statement::Init(char const* QueryIn)
 	NumBindsIn = (unsigned int)mysql_stmt_param_count(MyStatement);
 	if (NumBindsIn > 0)
 	{
+		if (BindsIn) free(BindsIn);
 		BindsIn = (Bind*)malloc(sizeof(Bind) * NumBindsIn);
 		if (!BindsIn) exit(1);
 
@@ -306,6 +313,7 @@ bool Statement::Init(char const* QueryIn)
 	NumBindsOut = mysql_stmt_field_count(MyStatement);
 	if (NumBindsOut > 0)
 	{
+		if (BindsOut) free(BindsOut);
 		BindsOut = (Bind*)malloc(sizeof(Bind) * NumBindsOut);
 		if (!BindsOut) exit(1);
 
@@ -322,29 +330,27 @@ bool Statement::Init(char const* QueryIn)
 bool Statement::BindIn()
 {
     if (!BindsIn) return false;
-    if (MyBindsIn)
-        free(MyBindsIn);
+	if (!MyBindsIn)
+	{
+		MyBindsIn = (MYSQL_BIND*)malloc(sizeof(MYSQL_BIND) * NumBindsIn);
+		if (!MyBindsIn) exit(1);
+		memset(MyBindsIn, 0, sizeof(MYSQL_BIND) * NumBindsIn);
+	}
 
-    MyBindsIn = (MYSQL_BIND*)malloc(sizeof(MYSQL_BIND) * NumBindsIn);
-    if (!MyBindsIn) exit(1);
-    memset(MyBindsIn, 0, sizeof(MYSQL_BIND) * NumBindsIn);
+	for (unsigned int i = 0; i < NumBindsIn; i++)
+	{
+		Bind* b = (BindsIn + i);
+		b->Update(MyBindsIn + i);
+	}
 
-    unsigned int CountIn = 0;
-    for (unsigned int i = 0; i < NumBindsIn; i++)
-    {
-        Bind* b = (BindsIn + i);
-        b->Create(MyBindsIn + CountIn);
-        CountIn++;
-    }
-
-    if (NumBindsIn > 0)
-    {
-        if (mysql_stmt_bind_param(MyStatement, MyBindsIn))
-        {
-            ShowMySQLStatementError(MyStatement, "mysql_stmt_bind_param()");
-            return false;
-        }
-    }
+	if (NumBindsIn > 0)
+	{
+		if (mysql_stmt_bind_param(MyStatement, MyBindsIn))
+		{
+			ShowMySQLStatementError(MyStatement, "mysql_stmt_bind_param()");
+			return false;
+		}
+	}
 
     return true;
 }
@@ -359,14 +365,11 @@ bool Statement::BindOut()
 	if (!MyBindsOut) exit(1);
 	memset(MyBindsOut, 0, sizeof(MYSQL_BIND) * NumBindsOut);
 
-	unsigned int CountOut = 0;
 	for (unsigned int i = 0; i < NumBindsOut; i++)
 	{
 		Bind* b = (BindsOut + i);
-		b->Create(MyBindsOut + CountOut);
-		CountOut++;
+		b->Update(MyBindsOut + i);
 	}
-
 
 	if (NumBindsOut > 0)
 	{
@@ -394,7 +397,7 @@ int Statement::Execute()
 	if (AffectedRows == (my_ulonglong)-1)
 		return -1;
 
-	return AffectedRows;
+	return (int)AffectedRows;
 }
 
 bool Statement::Fetch()

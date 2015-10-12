@@ -23,7 +23,7 @@ public:
 	bool IsNull();
 
 protected:
-	void Create(struct st_mysql_bind* MyBind);
+	void Update(struct st_mysql_bind* MyBind);
 
 protected:
 	void* Data;

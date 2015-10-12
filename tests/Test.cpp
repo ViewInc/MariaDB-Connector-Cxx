@@ -218,6 +218,5 @@ bool Test5_Copy(class Connection* Con)
 	if (strncmp(Name1->AsString(), Name2->AsString(), Name1->GetLength()) != 0)
 		return false;
 
-
 	return true;
 }
