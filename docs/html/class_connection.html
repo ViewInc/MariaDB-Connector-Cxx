@@ -119,9 +119,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adbb24f87d4095a4a696719add9115209"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#adbb24f87d4095a4a696719add9115209">Query</a> (char const *QueryStr, unsigned long Length, class <a class="el" href="class_result.html">Result</a> *ResultOut)</td></tr>
 <tr class="memdesc:adbb24f87d4095a4a696719add9115209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a simple query, with expected results.  <a href="#adbb24f87d4095a4a696719add9115209">More...</a><br /></td></tr>
 <tr class="separator:adbb24f87d4095a4a696719add9115209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32cc6f6ed8cfc166b70d4c69e6be98a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a32cc6f6ed8cfc166b70d4c69e6be98a3">Execute</a> (class <a class="el" href="class_statement.html">Statement</a> *stmt)</td></tr>
-<tr class="memdesc:a32cc6f6ed8cfc166b70d4c69e6be98a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a prepared statement.  <a href="#a32cc6f6ed8cfc166b70d4c69e6be98a3">More...</a><br /></td></tr>
-<tr class="separator:a32cc6f6ed8cfc166b70d4c69e6be98a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -143,7 +140,8 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main class of the MariaDB connection. </p>
 <p>Create a connection to a database with <code><a class="el" href="class_connection.html#aaa6f9b14267bb48e1c778c9a0c822d50" title="Connect to the specified server. ">Connect()</a></code>, and disconnect with <code><a class="el" href="class_connection.html#ab47840ece7746e9de9eb78d3c9ac2a7a" title="Disconnects from the current connected server. ">Close()</a></code>.</p>
-<p>If the <a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a> destructor is called, the connection is closed. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>If the <a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a> destructor is called, the connection is closed. </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Arvid Gerstmann </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9de94289ca6259f94ef6aeba3b134a77"></a>
 <div class="memitem">
@@ -206,7 +204,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disconnects from the current connected server. </p>
-<p>Does nothing if not connected to a server. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Does nothing if not connected to a server. </dd></dl>
 
 </div>
 </div>
@@ -253,25 +251,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Connect to the specified server. </p>
-
-</div>
-</div>
-<a class="anchor" id="a32cc6f6ed8cfc166b70d4c69e6be98a3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Connection::Execute </td>
-          <td>(</td>
-          <td class="paramtype">class <a class="el" href="class_statement.html">Statement</a> *&#160;</td>
-          <td class="paramname"><em>stmt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Executes a prepared statement. </p>
-<dl class="section return"><dt>Returns</dt><dd>Whether the query was successfull. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the connection attempt was successfull. </dd></dl>
 
 </div>
 </div>
@@ -318,6 +298,13 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes a simple query, without expected result. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QueryStr</td><td>A valid SQL query. </td></tr>
+    <tr><td class="paramname">Length</td><td>The length of the SQL query string. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT), or -1 on error. </dd></dl>
 
 </div>
@@ -353,6 +340,14 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes a simple query, with expected results. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QueryStr</td><td>A valid SQL query. </td></tr>
+    <tr><td class="paramname">Length</td><td>The length of the SQL query string. </td></tr>
+    <tr><td class="paramname">ResultOut</td><td>The <code><a class="el" href="class_result.html" title="The result. ">Result</a></code> object where the result will be copied to. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT), or -1 on error. </dd></dl>
 
 </div>

@@ -93,29 +93,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>The input / output bindings for prepared statements.  
+ <a href="class_bind.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_statement_8h_source.html">Statement.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a375a86fb5ed134c1efbe962ebbfb3438"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a375a86fb5ed134c1efbe962ebbfb3438">Bind</a> ()</td></tr>
-<tr class="separator:a375a86fb5ed134c1efbe962ebbfb3438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a048901534135494cc4028db67168e3d3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a048901534135494cc4028db67168e3d3">~Bind</a> ()</td></tr>
-<tr class="separator:a048901534135494cc4028db67168e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29531ab84e495311ef5b99368cc9d439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a29531ab84e495311ef5b99368cc9d439">SetInput</a> (<a class="el" href="struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963">SQL_TYPE::Value</a> Type, void const *Buffer, unsigned long Length)</td></tr>
+<tr class="memdesc:a29531ab84e495311ef5b99368cc9d439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the binding for input.  <a href="#a29531ab84e495311ef5b99368cc9d439">More...</a><br /></td></tr>
 <tr class="separator:a29531ab84e495311ef5b99368cc9d439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef30a42e1e5d65d1cee929a12aa34e29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#aef30a42e1e5d65d1cee929a12aa34e29">SetOutput</a> (<a class="el" href="struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963">SQL_TYPE::Value</a> Type, unsigned long Length)</td></tr>
+<tr class="memdesc:aef30a42e1e5d65d1cee929a12aa34e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the binding for output.  <a href="#aef30a42e1e5d65d1cee929a12aa34e29">More...</a><br /></td></tr>
 <tr class="separator:aef30a42e1e5d65d1cee929a12aa34e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd755bde0d7c5ab532168d04d68151e"><td class="memItemLeft" align="right" valign="top">void const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a9dd755bde0d7c5ab532168d04d68151e">GetData</a> ()</td></tr>
+<tr class="memdesc:a9dd755bde0d7c5ab532168d04d68151e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the buffered data.  <a href="#a9dd755bde0d7c5ab532168d04d68151e">More...</a><br /></td></tr>
 <tr class="separator:a9dd755bde0d7c5ab532168d04d68151e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af56024d975f5fc2829241f9b1b220a58"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#af56024d975f5fc2829241f9b1b220a58">GetLength</a> ()</td></tr>
+<tr class="memdesc:af56024d975f5fc2829241f9b1b220a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the length of the buffered data.  <a href="#af56024d975f5fc2829241f9b1b220a58">More...</a><br /></td></tr>
 <tr class="separator:af56024d975f5fc2829241f9b1b220a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affbf612b9398e0c09b562824c3b4235c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#affbf612b9398e0c09b562824c3b4235c">IsNull</a> ()</td></tr>
+<tr class="memdesc:affbf612b9398e0c09b562824c3b4235c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the output data is NULL.  <a href="#affbf612b9398e0c09b562824c3b4235c">More...</a><br /></td></tr>
 <tr class="separator:affbf612b9398e0c09b562824c3b4235c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a097a2622756ecbc58096a167f6d49444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a097a2622756ecbc58096a167f6d49444">Create</a> (struct st_mysql_bind *MyBind)</td></tr>
-<tr class="separator:a097a2622756ecbc58096a167f6d49444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375a86fb5ed134c1efbe962ebbfb3438"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a375a86fb5ed134c1efbe962ebbfb3438">Bind</a> ()</td></tr>
+<tr class="separator:a375a86fb5ed134c1efbe962ebbfb3438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048901534135494cc4028db67168e3d3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a048901534135494cc4028db67168e3d3">~Bind</a> ()</td></tr>
+<tr class="separator:a048901534135494cc4028db67168e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee15f0dd962668b1bf9d3906e5907763"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#aee15f0dd962668b1bf9d3906e5907763">Bind</a> (<a class="el" href="class_bind.html">Bind</a> const &amp;Other)</td></tr>
+<tr class="separator:aee15f0dd962668b1bf9d3906e5907763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fce78bf8489cf49420d730d66949dbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bind.html">Bind</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a9fce78bf8489cf49420d730d66949dbe">operator=</a> (<a class="el" href="class_bind.html">Bind</a> const &amp;Other)</td></tr>
+<tr class="separator:a9fce78bf8489cf49420d730d66949dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e516fc3f26287bda47b503023d5a14c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#a1e516fc3f26287bda47b503023d5a14c">Update</a> (struct st_mysql_bind *MyBind)</td></tr>
+<tr class="separator:a1e516fc3f26287bda47b503023d5a14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -137,7 +149,10 @@ Friends</h2></td></tr>
 <tr class="memitem:adab6e13caeb507948d0ee0b059b1a1af"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bind.html#adab6e13caeb507948d0ee0b059b1a1af">Statement</a></td></tr>
 <tr class="separator:adab6e13caeb507948d0ee0b059b1a1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The input / output bindings for prepared statements. </p>
+<dl class="section author"><dt>Author</dt><dd>Arvid Gerstmann </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a375a86fb5ed134c1efbe962ebbfb3438"></a>
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +169,7 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -177,15 +192,14 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a097a2622756ecbc58096a167f6d49444"></a>
+<a class="anchor" id="aee15f0dd962668b1bf9d3906e5907763"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -193,22 +207,23 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Bind::Create </td>
+          <td class="memname">Bind::Bind </td>
           <td>(</td>
-          <td class="paramtype">struct st_mysql_bind *&#160;</td>
-          <td class="paramname"><em>MyBind</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_bind.html">Bind</a> const &amp;&#160;</td>
+          <td class="paramname"><em>Other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9dd755bde0d7c5ab532168d04d68151e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -221,6 +236,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Access the buffered data. </p>
 
 </div>
 </div>
@@ -237,6 +254,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Access the length of the buffered data. </p>
+
 </div>
 </div>
 <a class="anchor" id="affbf612b9398e0c09b562824c3b4235c"></a>
@@ -250,6 +269,33 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Whether the output data is NULL. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Only valid for output bindings. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9fce78bf8489cf49420d730d66949dbe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_bind.html">Bind</a>&amp; Bind::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_bind.html">Bind</a> const &amp;&#160;</td>
+          <td class="paramname"><em>Other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -284,6 +330,17 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the binding for input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>Type of the input buffer. </td></tr>
+    <tr><td class="paramname">Buffer</td><td>Input data. </td></tr>
+    <tr><td class="paramname">Length</td><td>Length of the input data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>The data of specified length will be <em>copied</em> into the binding. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="aef30a42e1e5d65d1cee929a12aa34e29"></a>
@@ -308,6 +365,40 @@ Friends</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Prepares the binding for output. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>Type of the output buffer. </td></tr>
+    <tr><td class="paramname">Length</td><td>Maximum length of the output buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Only lengths bytes will be allocated for the output buffer, anything which exceeds the length will not be returned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e516fc3f26287bda47b503023d5a14c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bind::Update </td>
+          <td>(</td>
+          <td class="paramtype">struct st_mysql_bind *&#160;</td>
+          <td class="paramname"><em>MyBind</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

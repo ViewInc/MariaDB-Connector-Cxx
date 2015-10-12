@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mariadb_20connector_2fc_2b_2b',['MariaDB Connector/C++',['../md__r_e_a_d_m_e.html',1,'']]],
   ['mybindsin',['MyBindsIn',['../class_statement.html#aba9c9b66e160d22b83499dffbe553ab4',1,'Statement']]],
   ['mybindsout',['MyBindsOut',['../class_statement.html#ab9e7e021c560025ec51bc8b7570e6f99',1,'Statement']]],
   ['mysql',['MySQL',['../class_connection.html#a1a7ed2eaaab5159293008dea06dce9e8',1,'Connection']]],

@@ -1,7 +1,9 @@
 var searchData=
 [
   ['binary',['BINARY',['../struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963a2e6846d2c69f564c179a5eff8571f360',1,'SQL_TYPE']]],
-  ['bind',['Bind',['../class_bind.html',1,'Bind'],['../class_bind.html#a375a86fb5ed134c1efbe962ebbfb3438',1,'Bind::Bind()']]],
+  ['bind',['Bind',['../class_bind.html',1,'Bind'],['../class_bind.html#a375a86fb5ed134c1efbe962ebbfb3438',1,'Bind::Bind()'],['../class_bind.html#aee15f0dd962668b1bf9d3906e5907763',1,'Bind::Bind(Bind const &amp;Other)']]],
+  ['bindin',['BindIn',['../class_statement.html#acf1e71c567790305423ff212c6dfce52',1,'Statement']]],
+  ['bindout',['BindOut',['../class_statement.html#a186d73083bd9e516c5757e2a1fdef65f',1,'Statement']]],
   ['bindsin',['BindsIn',['../class_statement.html#a2909234df7aef1d8106e56ffd4173348',1,'Statement']]],
   ['bindsout',['BindsOut',['../class_statement.html#ab7945c474d620d606aa5a1fe42d67e69',1,'Statement']]],
   ['bisconnected',['bIsConnected',['../class_connection.html#a67044b1a5d259abaa7f92ab51ef791f9',1,'Connection']]],
