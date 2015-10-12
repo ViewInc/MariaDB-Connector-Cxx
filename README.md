@@ -20,34 +20,34 @@ The goal of this library is a streamlined, and good experience for the user. It 
 - [MariaDB Connector/C](https://github.com/MariaDB/mariadb-connector-c)
 
 # Usage
-```
-#include "MySQLCXX.h"
-#include <stdio.h>
-#include <string.h>
 
-int main()
-{
-    Connection Con;
-	Con.Connect("localhost", "root", "root", NULL, 3306);
-	if (Con.IsConnected())
+	#include "MySQLCXX.h"
+	#include <stdio.h>
+	#include <string.h>
+	
+	int main()
 	{
-	    Result Res;
-	    char const* query = SQL(
-		    SELECT `name`,`age`
-		    FROM `test`);
-        int NumRows = Con->Query(query, strlen(query), &Res);
-        if (NumRows > 0)
-        {
-            Row* Row0 = Res.GetRow(0);
-	        Field* Name = Row0->GetField(0);
-	        Field* Age = Row0->GetField(1);
-	        printf("%s is %d years old.\n", Name->AsString(), Age->AsUnsignedByte());
+	    Connection Con;
+		Con.Connect("localhost", "root", "root", NULL, 3306);
+		if (Con.IsConnected())
+		{
+		    Result Res;
+		    char const* query = SQL(
+			    SELECT `name`,`age`
+			    FROM `test`);
+	        int NumRows = Con->Query(query, strlen(query), &Res);
+	        if (NumRows > 0)
+	        {
+	            Row* Row0 = Res.GetRow(0);
+		        Field* Name = Row0->GetField(0);
+		        Field* Age = Row0->GetField(1);
+		        printf("%s is %d years old.\n", Name->AsString(), Age->AsUnsignedByte());
+		    }
 	    }
-    }
-    
-    return 0;
-}
-```
+	    
+	    return 0;
+	}
+
 For more examples, see the [`Tests.cpp`](https://github.com/Leandros/MariaDB-Connector-Cxx/blob/master/tests/Tests.cpp).
 
 # Contributing

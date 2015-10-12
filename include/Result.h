@@ -3,6 +3,13 @@
 #include "Types.h"
 
 /** The data field.
+ *
+ * @remarks Queries executed via `Connection::Query()`, the data will *always* be a
+ * zero-terminated char array.
+ * @remarks Queries executed via prepared statements are in there respective data type.
+ * @remarks Trying to get the data as a different type will either return 0 or NULL.
+ *
+ * @todo Improve the described behaviour above.
  */
 class Field
 {
@@ -17,6 +24,9 @@ protected:
 	Field& operator=(Field const& Other);
 	
 public:
+	/**
+	 * @return The length of the data
+	 */
 	unsigned long GetLength();
 	
 	char const* AsString();
@@ -56,7 +66,17 @@ protected:
 	Row& operator=(Row const& Other);
 
 public:
+	/**
+	 * @return The amount of columns (fields) in this row
+	 */
 	unsigned int GetFieldCount();
+
+	/** Return a field.
+	 *
+	 * @param Index The index of the field to return.
+	 * @return The `Field` or NULL, if Index is out of bounds.
+	 * @see Field
+	 */
 	Field* GetField(unsigned int Index);
 
 protected:
@@ -77,15 +97,32 @@ public:
 	Result(Result const& Other);
 	Result& operator=(Result const& Other);
 	
+	/** Resets the result.
+	 *
+	 * After resetting a result object, it can be reused.
+	 */
 	void ResetResult();
+
+	/**
+	 * @return Whether the result is valid.
+	 */
+	bool IsValid();
+
+	/**
+	 * @return The row count.
+	 */
+	unsigned int GetRowCount();
+
+	/** Return a row.
+	 *
+	 * @param Index The index of the row to return.
+	 * @return The `Row` or NULL, if Index is out of bounds.
+	 * @see Row
+	 */
+	Row* GetRow(unsigned int Index);
 
 protected:
 	int CreateResult(struct st_mysql_res* MyResult);
-
-public:
-	bool IsValid();
-	unsigned int GetRowCount();
-	Row* GetRow(unsigned int Index);
 
 protected:
 	bool bIsValid;
