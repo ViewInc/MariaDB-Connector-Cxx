@@ -380,17 +380,21 @@ bool Statement::BindOut()
 	return true;
 }
 
-bool Statement::Execute()
+int Statement::Execute()
 {
-	if (!Con) return false;
+	if (!Con) return -1;
 
 	if (mysql_stmt_execute(MyStatement))
 	{
 		ShowMySQLStatementError(MyStatement, "mysql_stmt_execute()");
-		return false;
+		return -1;
 	}
 
-	return true;
+	my_ulonglong AffectedRows = mysql_stmt_affected_rows(MyStatement);
+	if (AffectedRows == (my_ulonglong)-1)
+		return -1;
+
+	return AffectedRows;
 }
 
 bool Statement::Fetch()

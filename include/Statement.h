@@ -49,7 +49,7 @@ public:
 	bool Init(char const* Query);
     bool BindIn();
 	bool BindOut();
-	bool Execute();
+	int Execute();
 	bool Fetch();
 	int FetchAll(class Result* Res);
 
