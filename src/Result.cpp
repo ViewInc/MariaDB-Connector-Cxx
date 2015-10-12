@@ -90,7 +90,7 @@ char const* Field::AsString()
 		return (char*)Data;
 	}
 
-	return nullptr;
+	return NULL;
 }
 
 void const* Field::AsBinary()
@@ -252,7 +252,7 @@ double Field::AsDouble()
 
 Row::Row()
 	: FieldCount(0)
-	, Fields(nullptr)
+	, Fields(NULL)
 {
 }
 
@@ -338,14 +338,14 @@ unsigned int Row::GetFieldCount()
 
 Field* Row::GetField(unsigned int Index)
 {
-	if (Index >= FieldCount) return nullptr;
+	if (Index >= FieldCount) return NULL;
 	return (Fields + Index);
 }
 
 Result::Result()
 	: bIsValid(false)
 	, RowCount(0)
-	, Rows(nullptr)
+	, Rows(NULL)
 {
 }
 
@@ -428,7 +428,7 @@ void Result::ResetResult()
 	free(Rows);
 	bIsValid = false;
 	RowCount = 0;
-	Rows = nullptr;
+	Rows = NULL;
 }
 
 bool Result::IsValid()
@@ -443,6 +443,6 @@ unsigned int Result::GetRowCount()
 
 Row* Result::GetRow(unsigned int Index)
 {
-	if (Index >= RowCount) return nullptr;
+	if (Index >= RowCount) return NULL;
 	return (Rows + Index);
 }

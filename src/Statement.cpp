@@ -9,7 +9,7 @@
 #include "mariadb/mysql.h"
 
 Bind::Bind()
-	: Data(nullptr)
+	: Data(NULL)
 	, DataType(SQL_TYPE::UNKNOWN)
 	, LengthInput(0)
 	, LengthOutput(0)
@@ -22,40 +22,6 @@ Bind::~Bind()
 {
 	free(Data);
 }
-
-// May re-add them later.
-//Bind::Bind(Bind const& Other)
-//{
-//	// Copy.
-//	Data = malloc(Other.LengthInput);
-//	if (!Data) exit(1);
-//	memcpy(Data, Other.Data, Other.LengthInput);
-//
-//	DataType = Other.DataType;
-//	LengthInput = Other.LengthInput;
-//	LengthOutput = Other.LengthOutput;
-//	bIsNullOutput = Other.bIsNullOutput;
-//	bIsInput = Other.bIsInput;
-//}
-//
-//Bind& Bind::operator=(Bind const& Other)
-//{
-//	// Reset.
-//	free(Data);
-//
-//	// Copy.
-//	Data = malloc(Other.LengthInput);
-//	if (!Data) exit(1);
-//	memcpy(Data, Other.Data, Other.LengthInput);
-//
-//	DataType = Other.DataType;
-//	LengthInput = Other.LengthInput;
-//	LengthOutput = Other.LengthOutput;
-//	bIsNullOutput = Other.bIsNullOutput;
-//	bIsInput = Other.bIsInput;
-//
-//	return *this;
-//}
 
 void Bind::SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Length)
 {
@@ -153,140 +119,18 @@ Statement::Statement(Connection* ConIn)
 
 Statement::~Statement()
 {
-	for (unsigned int i = 0; i < NumBindsIn; i++)
-	{
-		Bind* b = (BindsIn + i);
-		b->~Bind();
-	}
-
-	for (unsigned int i = 0; i < NumBindsOut; i++)
-	{
-		Bind* b = (BindsOut + i);
-		b->~Bind();
-	}
-
-	free(BindsIn);
-	free(BindsOut);
+	FreeBindsIn();
+	FreeBindsOut();
 	free(MyBindsIn);
 	free(MyBindsOut);
 	if (MyStatement)
 		mysql_stmt_close(MyStatement);
 }
 
-// May re-add them later.
-//Statement::Statement(Statement const& Other)
-//{
-//	// Copy.
-//	Query = Other.Query;
-//	Con = Other.Con;
-//
-//	if (Other.MyStatement)
-//	{
-//		MyStatement = (MYSQL_STMT*)malloc(sizeof(MYSQL_STMT));
-//		if (!MyStatement) exit(1);
-//		memcpy(MyStatement, Other.MyStatement, sizeof(MYSQL_STMT));
-//	}
-//
-//	NumBindsIn = Other.NumBindsIn;
-//	NumBindsOut = Other.NumBindsOut;
-//	if (Other.BindsIn)
-//	{
-//		BindsIn = (Bind*)malloc(sizeof(Bind) * NumBindsIn);
-//		if (!BindsIn) exit(1);
-//
-//		for (unsigned int i = 0; i < NumBindsIn; i++)
-//		{
-//			Bind* bOther = (Other.BindsIn + i);
-//			Bind* bNew = new(BindsIn + i) Bind(*bOther);
-//			(void)bNew;
-//		}
-//	}
-//	if (Other.BindsOut)
-//	{
-//		BindsOut = (Bind*)malloc(sizeof(Bind) * NumBindsOut);
-//		if (!BindsOut) exit(1);
-//
-//		for (unsigned int i = 0; i < NumBindsOut; i++)
-//		{
-//			Bind* bOther = (Other.BindsOut + i);
-//			Bind* bNew = new(BindsOut + i) Bind(*bOther);
-//			(void)bNew;
-//		}
-//	}
-//
-//	Prepare();
-//}
-//
-//Statement& Statement::operator=(Statement const& Other)
-//{
-//	// Reset.
-//	for (unsigned int i = 0; i < NumBindsIn; i++)
-//	{
-//		Bind* b = (BindsIn + i);
-//		b->~Bind();
-//	}
-//
-//	for (unsigned int i = 0; i < NumBindsOut; i++)
-//	{
-//		Bind* b = (BindsOut + i);
-//		b->~Bind();
-//	}
-//
-//	free(BindsIn);
-//	free(BindsOut);
-//	BindsIn = nullptr;
-//	BindsOut = nullptr;
-//	if (MyStatement)
-//	{
-//		mysql_stmt_close(MyStatement);
-//		MyStatement = nullptr;
-//	}
-//
-//	// Copy.
-//	Query = Other.Query;
-//	Con = Other.Con;
-//	
-//	if (Other.MyStatement)
-//	{
-//		MyStatement = (MYSQL_STMT*)malloc(sizeof(MYSQL_STMT));
-//		if (!MyStatement) exit(1);
-//		memcpy(MyStatement, Other.MyStatement, sizeof(MYSQL_STMT));
-//	}
-//
-//	NumBindsIn = Other.NumBindsIn;
-//	NumBindsOut = Other.NumBindsOut;
-//	if (Other.BindsIn)
-//	{
-//		BindsIn = (Bind*)malloc(sizeof(Bind) * NumBindsIn);
-//		if (!BindsIn) exit(1);
-//
-//		for (unsigned int i = 0; i < NumBindsIn; i++)
-//		{
-//			Bind* bOther = (Other.BindsIn + i);
-//			Bind* bNew = new(BindsIn + i) Bind(*bOther);
-//			(void)bNew;
-//		}
-//	}
-//	if (Other.BindsOut)
-//	{
-//		BindsOut = (Bind*)malloc(sizeof(Bind) * NumBindsOut);
-//		if (!BindsOut) exit(1);
-//
-//		for (unsigned int i = 0; i < NumBindsOut; i++)
-//		{
-//			Bind* bOther = (Other.BindsOut + i);
-//			Bind* bNew = new(BindsOut + i) Bind(*bOther);
-//			(void)bNew;
-//		}
-//	}
-//	
-//	Prepare();
-//	return *this;
-//}
-
 bool Statement::Init(char const* QueryIn)
 {
 	if (!Con) return false;
+	if (MyStatement) mysql_stmt_close(MyStatement);
 
 	Query = QueryIn;
 	MyStatement = mysql_stmt_init(Con->MySQL);
@@ -299,7 +143,7 @@ bool Statement::Init(char const* QueryIn)
 	NumBindsIn = (unsigned int)mysql_stmt_param_count(MyStatement);
 	if (NumBindsIn > 0)
 	{
-		if (BindsIn) free(BindsIn);
+		if (BindsIn) FreeBindsIn();
 		BindsIn = (Bind*)malloc(sizeof(Bind) * NumBindsIn);
 		if (!BindsIn) exit(1);
 
@@ -313,7 +157,7 @@ bool Statement::Init(char const* QueryIn)
 	NumBindsOut = mysql_stmt_field_count(MyStatement);
 	if (NumBindsOut > 0)
 	{
-		if (BindsOut) free(BindsOut);
+		if (BindsOut) FreeBindsOut();
 		BindsOut = (Bind*)malloc(sizeof(Bind) * NumBindsOut);
 		if (!BindsOut) exit(1);
 
@@ -442,16 +286,16 @@ int Statement::FetchAll(Result* Res)
 
 Bind* Statement::GetBindIn(unsigned int Index)
 {
-	if (!Con) return nullptr;
-	if (Index >= NumBindsIn) return nullptr;
+	if (!Con) return NULL;
+	if (Index >= NumBindsIn) return NULL;
 
 	return (BindsIn + Index);
 }
 
 Bind* Statement::GetBindOut(unsigned int Index)
 {
-	if (!Con) return nullptr;
-	if (Index >= NumBindsOut) return nullptr;
+	if (!Con) return NULL;
+	if (Index >= NumBindsOut) return NULL;
 
 	return (BindsOut + Index);
 }
@@ -459,6 +303,32 @@ Bind* Statement::GetBindOut(unsigned int Index)
 void Statement::SetConnection(Connection* ConIn)
 {
 	Con = ConIn;
+}
+
+void Statement::FreeBindsIn()
+{
+	for (unsigned int i = 0; i < NumBindsIn; i++)
+	{
+		Bind* b = (BindsIn + i);
+		b->~Bind();
+	}
+
+	free(BindsIn);
+	BindsIn = NULL;
+	NumBindsIn = 0;
+}
+
+void Statement::FreeBindsOut()
+{
+	for (unsigned int i = 0; i < NumBindsOut; i++)
+	{
+		Bind* b = (BindsOut + i);
+		b->~Bind();
+	}
+
+	free(BindsOut);
+	BindsOut = NULL;
+	NumBindsOut = 0;
 }
 
 void Statement::ShowMySQLStatementError(st_mysql_stmt* stmt, char const* call)
