@@ -2,15 +2,16 @@
 
 #include "Types.h"
 
+/** The input / output bindings for prepared statements.
+ *
+ */
 class Bind
 {
 friend class Statement;
 
-public:
+protected:
 	explicit Bind();
 	virtual ~Bind();
-
-private:
 	Bind(Bind const& Other){}
     Bind& operator=(Bind const& Other){return *this;}
 

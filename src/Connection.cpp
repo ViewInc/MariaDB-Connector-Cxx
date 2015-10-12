@@ -96,7 +96,7 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 	my_ulonglong AffectedRows = mysql_affected_rows(MySQL);
 	if (AffectedRows == ((my_ulonglong)-1)) return -1;
 
-	return AffectedRows;
+	return (int)AffectedRows;
 }
 
 void Connection::ShowMySQLError(st_mysql* mysql, char const* call)
