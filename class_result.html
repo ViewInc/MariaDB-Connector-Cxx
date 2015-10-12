@@ -109,12 +109,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abb25eb344b66cd92d9d079dc19bc05e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_result.html">Result</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result.html#abb25eb344b66cd92d9d079dc19bc05e1">operator=</a> (<a class="el" href="class_result.html">Result</a> const &amp;Other)</td></tr>
 <tr class="separator:abb25eb344b66cd92d9d079dc19bc05e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806a828b9546dea0761db7a2d01a4563"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result.html#a806a828b9546dea0761db7a2d01a4563">ResetResult</a> ()</td></tr>
+<tr class="memdesc:a806a828b9546dea0761db7a2d01a4563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the result.  <a href="#a806a828b9546dea0761db7a2d01a4563">More...</a><br /></td></tr>
 <tr class="separator:a806a828b9546dea0761db7a2d01a4563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dcbd5f9c93b82027e4cfa4db492fe31"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result.html#a6dcbd5f9c93b82027e4cfa4db492fe31">IsValid</a> ()</td></tr>
 <tr class="separator:a6dcbd5f9c93b82027e4cfa4db492fe31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf87b5720707b42129079aba141a267"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result.html#aedf87b5720707b42129079aba141a267">GetRowCount</a> ()</td></tr>
 <tr class="separator:aedf87b5720707b42129079aba141a267"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40131fa88f4c69fb6713e51568b86c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_row.html">Row</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_result.html#ad40131fa88f4c69fb6713e51568b86c9">GetRow</a> (unsigned int Index)</td></tr>
+<tr class="memdesc:ad40131fa88f4c69fb6713e51568b86c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a row.  <a href="#ad40131fa88f4c69fb6713e51568b86c9">More...</a><br /></td></tr>
 <tr class="separator:ad40131fa88f4c69fb6713e51568b86c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -242,6 +244,16 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Return a row. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Index</td><td>The index of the row to return. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <code><a class="el" href="class_row.html" title="The row. ">Row</a></code> or NULL, if Index is out of bounds. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_row.html" title="The row. ">Row</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="aedf87b5720707b42129079aba141a267"></a>
@@ -256,6 +268,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The row count. </dd></dl>
 
 </div>
 </div>
@@ -271,6 +284,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Whether the result is valid. </dd></dl>
 
 </div>
 </div>
@@ -302,6 +316,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resets the result. </p>
+<p>After resetting a result object, it can be reused. </p>
 
 </div>
 </div>

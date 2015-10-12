@@ -5,5 +5,7 @@ var searchData=
   ['field',['Field',['../class_field.html',1,'Field'],['../class_field.html#ab87dbfd0f9f0bbc72575d9723adfcd10',1,'Field::Field(char *MyField, unsigned long MyLength)'],['../class_field.html#a2c107d46631d5170e480d8c80b19dda8',1,'Field::Field(SQL_TYPE::Value Type, void *MyField, unsigned long MyLength)'],['../class_field.html#a2b4e860e3b06eaa5099a13efe50cc7df',1,'Field::Field(Field const &amp;Other)']]],
   ['fieldcount',['FieldCount',['../class_row.html#a303b42c6d6097886d385c30596c7e6ee',1,'Row']]],
   ['fields',['Fields',['../class_row.html#aaf5629269051fae24fbe8a4063d4375b',1,'Row']]],
-  ['float',['FLOAT',['../struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963a2d1d962fdba1b92dad33704120b3f970',1,'SQL_TYPE']]]
+  ['float',['FLOAT',['../struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963a2d1d962fdba1b92dad33704120b3f970',1,'SQL_TYPE']]],
+  ['freebindsin',['FreeBindsIn',['../class_statement.html#aac2b2cb7f5ebcd84e06a2edd9a4b949d',1,'Statement']]],
+  ['freebindsout',['FreeBindsOut',['../class_statement.html#a125a3a26318848d320f84ed038df1b16',1,'Statement']]]
 ];

@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['resetresult',['ResetResult',['../class_result.html#a806a828b9546dea0761db7a2d01a4563',1,'Result']]],
-  ['result',['Result',['../class_result.html#a90f44667e23d25ccdeac37f00a74657b',1,'Result::Result()'],['../class_result.html#a3c4a349c3795ad219e8d5ca1d44c62a4',1,'Result::Result(Result const &amp;Other)']]],
-  ['row',['Row',['../class_row.html#a5cca50abc389396e26ec68cbd3fb6596',1,'Row::Row()'],['../class_row.html#ad58cd118e1b179f9e2f623ee2f0f69e5',1,'Row::Row(struct st_mysql_res *MyResult, char **MyRow)'],['../class_row.html#a755d8df726c1c60fdd13b9bad0eed2bc',1,'Row::Row(Row const &amp;Other)']]]
+  ['setconnection',['SetConnection',['../class_statement.html#a93b31fae72eb0d71b9daa043e7131dbf',1,'Statement']]],
+  ['setinput',['SetInput',['../class_bind.html#a29531ab84e495311ef5b99368cc9d439',1,'Bind']]],
+  ['setoutput',['SetOutput',['../class_bind.html#aef30a42e1e5d65d1cee929a12aa34e29',1,'Bind']]],
+  ['showmysqlerror',['ShowMySQLError',['../class_connection.html#aefda5ba6f84c197f4c751a2ef862a66c',1,'Connection']]],
+  ['showmysqlstatementerror',['ShowMySQLStatementError',['../class_statement.html#aa129d8ee24ae51acadb39d5ab630649d',1,'Statement']]],
+  ['sqltypeisunsigned',['SQLTypeIsUnsigned',['../_types_8h.html#a4bf3d4c4f65c1ce6fe92b2115ec424d7',1,'SQLTypeIsUnsigned(SQL_TYPE::Value Type):&#160;Types.cpp'],['../_types_8cpp.html#a4bf3d4c4f65c1ce6fe92b2115ec424d7',1,'SQLTypeIsUnsigned(SQL_TYPE::Value Type):&#160;Types.cpp']]],
+  ['sqltypetomysqltype',['SQLTypeToMySQLType',['../_types_8h.html#ac53ee8c9cd5c20e94b951330f6cf4ccf',1,'SQLTypeToMySQLType(SQL_TYPE::Value Type):&#160;Types.cpp'],['../_types_8cpp.html#ac53ee8c9cd5c20e94b951330f6cf4ccf',1,'SQLTypeToMySQLType(SQL_TYPE::Value Type):&#160;Types.cpp']]],
+  ['statement',['Statement',['../class_statement.html#ab48acf95bec5dea254f44390c6221eb1',1,'Statement::Statement()'],['../class_statement.html#a462a77910215910891f4f826126c9bcd',1,'Statement::Statement(class Connection *Con)']]]
 ];

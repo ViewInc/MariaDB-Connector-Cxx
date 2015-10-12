@@ -158,6 +158,12 @@ Friends</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The data field. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Queries executed via <code><a class="el" href="class_connection.html#ad726e959bdbbde0760119401c0f78811" title="Executes a simple query, without expected result. ">Connection::Query()</a></code>, the data will <em>always</em> be a zero-terminated char array. </dd>
+<dd>
+Queries executed via prepared statements are in there respective data type. </dd>
+<dd>
+Trying to get the data as a different type will either return 0 or NULL.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Improve the described behaviour above. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab87dbfd0f9f0bbc72575d9723adfcd10"></a>
 <div class="memitem">
@@ -473,6 +479,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The length of the data </dd></dl>
 
 </div>
 </div>

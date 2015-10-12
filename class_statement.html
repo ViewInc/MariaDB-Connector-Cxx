@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_statement-members.html">List of all members</a>  </div>
@@ -92,32 +93,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>The prepared statements.  
+ <a href="class_statement.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_statement_8h_source.html">Statement.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab48acf95bec5dea254f44390c6221eb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#ab48acf95bec5dea254f44390c6221eb1">Statement</a> ()</td></tr>
+<tr class="memdesc:ab48acf95bec5dea254f44390c6221eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a>, without a connection.  <a href="#ab48acf95bec5dea254f44390c6221eb1">More...</a><br /></td></tr>
 <tr class="separator:ab48acf95bec5dea254f44390c6221eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a462a77910215910891f4f826126c9bcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a462a77910215910891f4f826126c9bcd">Statement</a> (class <a class="el" href="class_connection.html">Connection</a> *<a class="el" href="class_statement.html#a6d0ec1140215c6d723155ec16e0c4227">Con</a>)</td></tr>
+<tr class="memdesc:a462a77910215910891f4f826126c9bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a> with connection.  <a href="#a462a77910215910891f4f826126c9bcd">More...</a><br /></td></tr>
 <tr class="separator:a462a77910215910891f4f826126c9bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57fdfef84b5f92d83850f6467b46012a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a57fdfef84b5f92d83850f6467b46012a">~Statement</a> ()</td></tr>
 <tr class="separator:a57fdfef84b5f92d83850f6467b46012a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5290dbeb5b7a220516a844ce6ddefdb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a5290dbeb5b7a220516a844ce6ddefdb2">Init</a> (char const *<a class="el" href="class_statement.html#a88a32c1c42ef234f2b417d05375d2a3d">Query</a>)</td></tr>
+<tr class="memdesc:a5290dbeb5b7a220516a844ce6ddefdb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a>.  <a href="#a5290dbeb5b7a220516a844ce6ddefdb2">More...</a><br /></td></tr>
 <tr class="separator:a5290dbeb5b7a220516a844ce6ddefdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd845c4e7726c6177c62e5634bfb171c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#afd845c4e7726c6177c62e5634bfb171c">Prepare</a> ()</td></tr>
-<tr class="separator:afd845c4e7726c6177c62e5634bfb171c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c1844a7ef1c75e86779a4700b327936"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a3c1844a7ef1c75e86779a4700b327936">Execute</a> ()</td></tr>
-<tr class="separator:a3c1844a7ef1c75e86779a4700b327936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1e71c567790305423ff212c6dfce52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#acf1e71c567790305423ff212c6dfce52">BindIn</a> ()</td></tr>
+<tr class="memdesc:acf1e71c567790305423ff212c6dfce52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the input bindings to the statement.  <a href="#acf1e71c567790305423ff212c6dfce52">More...</a><br /></td></tr>
+<tr class="separator:acf1e71c567790305423ff212c6dfce52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186d73083bd9e516c5757e2a1fdef65f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a186d73083bd9e516c5757e2a1fdef65f">BindOut</a> ()</td></tr>
+<tr class="memdesc:a186d73083bd9e516c5757e2a1fdef65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the output bindings to the statement.  <a href="#a186d73083bd9e516c5757e2a1fdef65f">More...</a><br /></td></tr>
+<tr class="separator:a186d73083bd9e516c5757e2a1fdef65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c0b5e03f327c72a9a068b23ced3b76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a70c0b5e03f327c72a9a068b23ced3b76">Execute</a> ()</td></tr>
+<tr class="memdesc:a70c0b5e03f327c72a9a068b23ced3b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the statement.  <a href="#a70c0b5e03f327c72a9a068b23ced3b76">More...</a><br /></td></tr>
+<tr class="separator:a70c0b5e03f327c72a9a068b23ced3b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0b31402ce109c58736fc1a6e2f16205"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#ab0b31402ce109c58736fc1a6e2f16205">Fetch</a> ()</td></tr>
+<tr class="memdesc:ab0b31402ce109c58736fc1a6e2f16205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches one row of the result.  <a href="#ab0b31402ce109c58736fc1a6e2f16205">More...</a><br /></td></tr>
 <tr class="separator:ab0b31402ce109c58736fc1a6e2f16205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50535656ec9de583b228e909fd1bcc2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a50535656ec9de583b228e909fd1bcc2e">FetchAll</a> (class <a class="el" href="class_result.html">Result</a> *Res)</td></tr>
+<tr class="memdesc:a50535656ec9de583b228e909fd1bcc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches and buffers all rows of the result.  <a href="#a50535656ec9de583b228e909fd1bcc2e">More...</a><br /></td></tr>
 <tr class="separator:a50535656ec9de583b228e909fd1bcc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ddbcc8f3c44211ecb79a15a6407938"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bind.html">Bind</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#aa0ddbcc8f3c44211ecb79a15a6407938">GetBindIn</a> (unsigned int Index)</td></tr>
+<tr class="memdesc:aa0ddbcc8f3c44211ecb79a15a6407938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the output binding for the index.  <a href="#aa0ddbcc8f3c44211ecb79a15a6407938">More...</a><br /></td></tr>
 <tr class="separator:aa0ddbcc8f3c44211ecb79a15a6407938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af305da0cac3caf4936781127a9373534"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bind.html">Bind</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#af305da0cac3caf4936781127a9373534">GetBindOut</a> (unsigned int Index)</td></tr>
+<tr class="memdesc:af305da0cac3caf4936781127a9373534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the input binding for the index.  <a href="#af305da0cac3caf4936781127a9373534">More...</a><br /></td></tr>
 <tr class="separator:af305da0cac3caf4936781127a9373534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b31fae72eb0d71b9daa043e7131dbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a93b31fae72eb0d71b9daa043e7131dbf">SetConnection</a> (class <a class="el" href="class_connection.html">Connection</a> *<a class="el" href="class_statement.html#a6d0ec1140215c6d723155ec16e0c4227">Con</a>)</td></tr>
+<tr class="memdesc:a93b31fae72eb0d71b9daa043e7131dbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the used connection.  <a href="#a93b31fae72eb0d71b9daa043e7131dbf">More...</a><br /></td></tr>
 <tr class="separator:a93b31fae72eb0d71b9daa043e7131dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aac2b2cb7f5ebcd84e06a2edd9a4b949d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#aac2b2cb7f5ebcd84e06a2edd9a4b949d">FreeBindsIn</a> ()</td></tr>
+<tr class="separator:aac2b2cb7f5ebcd84e06a2edd9a4b949d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125a3a26318848d320f84ed038df1b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#a125a3a26318848d320f84ed038df1b16">FreeBindsOut</a> ()</td></tr>
+<tr class="separator:a125a3a26318848d320f84ed038df1b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -145,7 +169,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ab9e7e021c560025ec51bc8b7570e6f99"><td class="memItemLeft" align="right" valign="top">struct st_mysql_bind *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statement.html#ab9e7e021c560025ec51bc8b7570e6f99">MyBindsOut</a></td></tr>
 <tr class="separator:ab9e7e021c560025ec51bc8b7570e6f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The prepared statements. </p>
+<dl class="section author"><dt>Author</dt><dd>Arvid Gerstmann </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab48acf95bec5dea254f44390c6221eb1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -166,6 +193,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a new <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a>, without a connection. </p>
+<p>A connection has to be set, before use, through <code>setConnection()</code>. </p>
 
 </div>
 </div>
@@ -190,6 +220,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a new <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a> with connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Con</td><td>A valid connection. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -217,18 +255,62 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a3c1844a7ef1c75e86779a4700b327936"></a>
+<a class="anchor" id="acf1e71c567790305423ff212c6dfce52"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Statement::Execute </td>
+          <td class="memname">bool Statement::BindIn </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Binds the input bindings to the statement. </p>
+<dl class="section attention"><dt>Attention</dt><dd>All bindings should be setup prior to calling <code><a class="el" href="class_statement.html#acf1e71c567790305423ff212c6dfce52" title="Binds the input bindings to the statement. ">BindIn()</a></code>. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_statement.html#aa0ddbcc8f3c44211ecb79a15a6407938" title="Get the output binding for the index. ">GetBindIn()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the binding was successfull. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a186d73083bd9e516c5757e2a1fdef65f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Statement::BindOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds the output bindings to the statement. </p>
+<dl class="section attention"><dt>Attention</dt><dd>All bindings should be setup prior to calling <code><a class="el" href="class_statement.html#a186d73083bd9e516c5757e2a1fdef65f" title="Binds the output bindings to the statement. ">BindOut()</a></code>. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_statement.html#af305da0cac3caf4936781127a9373534" title="Get the input binding for the index. ">GetBindOut()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the binding was successfull. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a70c0b5e03f327c72a9a068b23ced3b76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Statement::Execute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes the statement. </p>
+<dl class="section attention"><dt>Attention</dt><dd>All input and output bidings should be setup via <code><a class="el" href="class_statement.html#acf1e71c567790305423ff212c6dfce52" title="Binds the input bindings to the statement. ">BindIn()</a></code> and <code><a class="el" href="class_statement.html#a186d73083bd9e516c5757e2a1fdef65f" title="Binds the output bindings to the statement. ">BindOut()</a> prior to calling</code><a class="el" href="class_statement.html#a70c0b5e03f327c72a9a068b23ced3b76" title="Executes the statement. ">Execute()</a>`. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Either the affected rows (UPDATE, DELETE, INSERT) or the number of rows in the result set (SELECT, EXPLAIN, etc). Or -1 for error. </dd></dl>
 
 </div>
 </div>
@@ -245,6 +327,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Fetches one row of the result. </p>
+<p>The result can be accessed through the output binding.</p>
+<dl class="section return"><dt>Returns</dt><dd>Whether there has been successfully a row fetched. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_bind.html" title="The input / output bindings for prepared statements. ">Bind</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a50535656ec9de583b228e909fd1bcc2e"></a>
@@ -259,6 +346,63 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Fetches and buffers all rows of the result. </p>
+<p>The results will be <em>copied</em> into the <code><a class="el" href="class_result.html" title="The result. ">Result</a></code> object. Only the last result will be available through the output binding.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Potentially long running operation. Use with caution. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Res</td><td>The <code><a class="el" href="class_result.html" title="The result. ">Result</a></code> where the data will be copied into. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of rows fetched. Or -1 for error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aac2b2cb7f5ebcd84e06a2edd9a4b949d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Statement::FreeBindsIn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a125a3a26318848d320f84ed038df1b16"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Statement::FreeBindsOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -277,6 +421,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the output binding for the index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Index</td><td>The index of the output. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The binding. NULL if no <code><a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a></code> is set, or the index is out of bounds. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_bind.html" title="The input / output bindings for prepared statements. ">Bind</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="af305da0cac3caf4936781127a9373534"></a>
@@ -292,6 +446,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the input binding for the index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Index</td><td>The index of the input. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The binding. NULL if no <code><a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a></code> is set, or the index is out of bounds. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_bind.html" title="The input / output bindings for prepared statements. ">Bind</a> </dd></dl>
 
 </div>
 </div>
@@ -309,20 +473,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="afd845c4e7726c6177c62e5634bfb171c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Statement::Prepare </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Initialize the <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a>. </p>
+<p>Initializes the statement and creates the bindings for the query.</p>
+<dl class="section remark"><dt>Remarks</dt><dd><em>Safe</em> to be called multiple times, though it's not recommended. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Query</td><td>A valid SQL query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the initialization was successfull. </dd></dl>
 
 </div>
 </div>
@@ -339,6 +499,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the used connection. </p>
 
 </div>
 </div>
