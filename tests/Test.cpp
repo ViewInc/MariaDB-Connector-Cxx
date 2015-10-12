@@ -101,7 +101,8 @@ bool Test4_PreparedStatement(Connection* Con)
 	Stmt.GetBindOut(3)->SetOutput(SQL_TYPE::INTEGER, 4);
 	Stmt.GetBindOut(4)->SetOutput(SQL_TYPE::FLOAT, 4);
 	Stmt.GetBindOut(5)->SetOutput(SQL_TYPE::DOUBLE, 8);
-	Stmt.Prepare();
+	Stmt.BindIn();
+	Stmt.BindOut();
 	Stmt.Execute();
 
 	// Fetch All.
@@ -149,6 +150,7 @@ bool Test4_PreparedStatement(Connection* Con)
 
     int id2 = 2;
     Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id2, sizeof(int));
+	Stmt.BindIn();
 	Stmt.Execute();
 	Stmt.Fetch();
 
@@ -186,7 +188,8 @@ bool Test5_Copy(class Connection* Con)
 	int id = 1;
 	Stmt1.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id, sizeof(int));
 	Stmt1.GetBindOut(0)->SetOutput(SQL_TYPE::STRING, 255);
-	Stmt1.Prepare();
+	Stmt1.BindIn();
+	Stmt1.BindOut();
 	Stmt1.Execute();
 
 	Result Res1;
