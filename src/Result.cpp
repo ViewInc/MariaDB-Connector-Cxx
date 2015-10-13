@@ -3,7 +3,81 @@
 #include <stdlib.h>
 #include <string.h>
 #include <new>
+#include <limits>
 #include "mariadb/mysql.h"
+
+#ifndef ALLOW_CONVERSION
+#	define ALLOW_CONVERSION 0
+#endif
+
+// Ugly preprocessor hacks.
+#define CONVERT_TO(T, TMIN, TMAX) \
+	else if (DataType == SQL_TYPE::BYTE) \
+	{ \
+		signed char Original = *(signed char*)Data; \
+		if (Original < TMIN) { RetVal = (T)TMIN; } \
+								else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::SHORT) \
+	{ \
+		signed short Original = *(signed short*)Data; \
+		if (Original < TMIN) { RetVal = (T)TMIN; } \
+		else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::INTEGER) \
+	{ \
+		signed int Original = *(signed int*)Data; \
+		if (Original < TMIN) { RetVal = (T)TMIN; } \
+		else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::LONG) \
+	{ \
+		signed long Original = *(signed long*)Data; \
+		if (Original < TMIN) { RetVal = (T)TMIN; } \
+		else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::UBYTE) \
+	{ \
+		unsigned char Original = *(unsigned char*)Data; \
+		if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::USHORT) \
+	{ \
+		unsigned short Original = *(unsigned short*)Data; \
+		if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::UINTEGER) \
+	{ \
+		unsigned int Original = *(unsigned int*)Data; \
+		if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::ULONG) \
+	{ \
+		unsigned long Original = *(unsigned long*)Data; \
+		if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::FLOAT) \
+	{ \
+		float Original = *(float*)Data; \
+		if (Original < TMIN) { RetVal = (signed char)TMIN; } \
+		else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	} \
+	else if (DataType == SQL_TYPE::DOUBLE) \
+	{ \
+		double Original = *(double*)Data; \
+		if (Original < TMIN) { RetVal = (T)TMIN; } \
+		else if (Original > TMAX) { RetVal = (T)TMAX; } \
+		else { RetVal = (T)Original; } \
+	}
 
 Field::Field(char* MyField, unsigned long MyLength)
 {
@@ -105,153 +179,183 @@ void const* Field::AsBinary()
 
 signed char Field::AsByte()
 {
+	signed char RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		signed char RetVal = (signed char)strtol((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (signed char)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::BYTE)
 	{
-		return *(signed char*)Data;
+		RetVal = *(signed char*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(signed char, SCHAR_MIN, SCHAR_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 signed short Field::AsShort()
 {
+	signed short RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		signed short RetVal = (signed short)strtol((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (signed short)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::SHORT)
 	{
-		return *(signed short*)Data;
+		RetVal = *(signed short*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(signed short, SHRT_MIN, SHRT_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 signed int Field::AsInteger()
 {
+	signed int RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		signed int RetVal = (signed int)strtol((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (signed int)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::INTEGER)
 	{
-		return *(signed int*)Data;
+		RetVal = *(signed int*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(signed int, INT_MIN, INT_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 signed long Field::AsLong()
 {
+	signed long RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		signed long RetVal = (signed long)strtol((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (signed long)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::LONG)
 	{
-		return *(signed long*)Data;
+		RetVal = *(signed long*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(signed long, LONG_MIN, LONG_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 unsigned char Field::AsUnsignedByte()
 {
+	unsigned char RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		unsigned char RetVal = (unsigned char)strtoul((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (unsigned char)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UBYTE)
 	{
-		return *(unsigned char*)Data;
+		RetVal = *(unsigned char*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(unsigned char, 0, CHAR_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 unsigned short Field::AsUnsignedShort()
 {
+	unsigned short RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		unsigned short RetVal = (unsigned short)strtoul((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (unsigned short)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::USHORT)
 	{
-		return *(unsigned short*)Data;
+		RetVal = *(unsigned short*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(unsigned short, 0, SHRT_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 unsigned int Field::AsUnsignedInteger()
 {
+	unsigned int RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		unsigned int RetVal = (unsigned int)strtoul((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (unsigned int)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UINTEGER)
 	{
-		return *(unsigned int*)Data;
+		RetVal = *(unsigned int*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(unsigned int, 0, INT_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 unsigned long Field::AsUnsignedLong()
 {
+	unsigned long RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		unsigned long RetVal = (unsigned long)strtoul((char*)Data, NULL, 10);
-		return RetVal;
+		RetVal = (unsigned long)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::ULONG)
 	{
-		return *(unsigned long*)Data;
+		RetVal = *(unsigned long*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(unsigned long, 0, LONG_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 
 float Field::AsFloat()
 {
+	float RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		float RetVal = (float)strtod((char*)Data, NULL);
-		return RetVal;
+		RetVal = (float)strtod((char*)Data, NULL);
 	}
 	else if (DataType == SQL_TYPE::FLOAT)
 	{
-		return *(float*)Data;
+		RetVal = *(float*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(float, FLT_MIN, FLT_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 double Field::AsDouble()
 {
+	double RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		double RetVal = (double)strtod((char*)Data, NULL);
-		return RetVal;
+		RetVal = (double)strtod((char*)Data, NULL);
 	}
 	else if (DataType == SQL_TYPE::DOUBLE)
 	{
-		return *(double*)Data;
+		RetVal = *(double*)Data;
 	}
+#if ALLOW_CONVERSION == 1
+	CONVERT_TO(double, DBL_MIN, DBL_MAX);
+#endif
 
-	return 0;
+	return RetVal;
 }
 
 
