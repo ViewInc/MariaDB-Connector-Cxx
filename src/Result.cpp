@@ -342,6 +342,16 @@ Field* Row::GetField(unsigned int Index)
 	return (Fields + Index);
 }
 
+RowIter Row::begin()
+{
+    return RowIter(this, 0);
+}
+
+RowIter Row::end()
+{
+    return RowIter(this, FieldCount - 1);
+}
+
 Result::Result()
 	: bIsValid(false)
 	, RowCount(0)
@@ -444,4 +454,60 @@ Row* Result::GetRow(unsigned int Index)
 {
 	if (Index >= RowCount) return NULL;
 	return (Rows + Index);
+}
+
+
+ResultIter Result::begin()
+{
+    return ResultIter(this, 0);
+}
+
+ResultIter Result::end()
+{
+    return ResultIter(this, RowCount - 1);
+}
+
+
+RowIter::RowIter(Row* pRow, unsigned int Pos)
+{
+    this->pRow = pRow;
+    this->Pos = Pos;
+}
+
+bool RowIter::operator!=(RowIter const& other)
+{
+    return Pos != other.Pos;
+}
+
+Field* RowIter::operator*()
+{
+    return pRow->GetField(Pos);
+}
+
+RowIter const& RowIter::operator++()
+{
+    ++Pos;
+    return *this;
+}
+
+ResultIter::ResultIter(Result* pResult, unsigned int Pos)
+{
+    this->pResult = pResult;
+    this->Pos = Pos;
+}
+
+bool ResultIter::operator!=(ResultIter const& other)
+{
+    return Pos != other.Pos;
+}
+
+Row* ResultIter::operator*()
+{
+    return pResult->GetRow(Pos);
+}
+
+ResultIter const& ResultIter::operator++()
+{
+    ++Pos;
+    return *this;
 }

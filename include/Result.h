@@ -2,6 +2,47 @@
 
 #include "Types.h"
 
+class Field;
+class Row;
+class Result;
+
+/** Row Iterator (for range-based loops).
+ *
+ */
+class RowIter
+{
+friend class Row;
+
+protected:
+    RowIter(Row* pRow, unsigned int Pos);
+
+public:
+    bool operator!=(RowIter const& other);
+    Field* operator*();
+    RowIter const& operator++();
+
+protected:
+    Row* pRow;
+    unsigned int Pos;
+};
+
+class ResultIter
+{
+friend class Result;
+
+protected:
+    ResultIter(Result* pResult, unsigned int Pos);
+
+public:
+    bool operator!=(ResultIter const& other);
+    Row* operator*();
+    ResultIter const& operator++();
+
+protected:
+    Result* pResult;
+    unsigned int Pos;
+};
+
 /** The data field.
  *
  * @remarks Queries executed via `Connection::Query()`, the data will *always* be a
@@ -79,6 +120,16 @@ public:
 	 */
 	Field* GetField(unsigned int Index);
 
+    /** Method for the range-for-loop in C++.
+     * @remarks Do not use standalone.
+     */
+    RowIter begin();
+
+    /** Method for the range-for-loop in C++.
+     * @remarks Do not use standalone.
+     */
+    RowIter end();
+
 protected:
 	unsigned int FieldCount;
 	Field* Fields;
@@ -120,6 +171,16 @@ public:
 	 * @see Row
 	 */
 	Row* GetRow(unsigned int Index);
+
+    /** Method for the range-for-loop in C++.
+     * @remarks Do not use standalone.
+     */
+    ResultIter begin();
+
+    /** Method for the range-for-loop in C++.
+     * @remarks Do not use standalone.
+     */
+    ResultIter end();
 
 protected:
 	int CreateResult(struct st_mysql_res* MyResult);
