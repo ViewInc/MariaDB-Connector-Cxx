@@ -403,7 +403,6 @@ int Result::CreateResult(MYSQL_RES* MyResult)
 	Rows = (Row*)malloc(sizeof(Row) * RowCount);
 	if (!Rows) exit(1);
 
-	i = 0;
 	for (i = 0; i < RowCount; i++)
 	{
 		if (!(MyRow = mysql_fetch_row(MyResult)))

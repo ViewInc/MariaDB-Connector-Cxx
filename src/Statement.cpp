@@ -265,21 +265,24 @@ int Statement::FetchAll(Result* Res)
 	Res->Rows = (Row*)malloc(sizeof(Row) * NumRows);
 	if (!Res->Rows) exit(1);
 
-	for (unsigned int i = 0; i < NumRows; i++)
-	{
-		Row* r = new(Res->Rows + i) Row();
-		r->FieldCount = NumBindsOut;
-		r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
-		if (!r->Fields) exit(1);
+    if (NumBindsOut > 0)
+    {
+        for (unsigned int i = 0; i < NumRows; i++)
+        {
+            Row* r = new(Res->Rows + i) Row();
+            r->FieldCount = NumBindsOut;
+            r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
+            if (!r->Fields) exit(1);
 
-		mysql_stmt_fetch(MyStatement);
-		for (unsigned int j = 0; j < NumBindsOut; j++)
-		{
-			Bind* out = GetBindOut(j);
-			Field* f = new(r->Fields + j) Field(out->DataType, out->Data, out->LengthOutput);
-            (void)f;
-		}
-	}
+            mysql_stmt_fetch(MyStatement);
+            for (unsigned int j = 0; j < NumBindsOut; j++)
+            {
+                Bind* out = GetBindOut(j);
+                Field* f = new(r->Fields + j) Field(out->DataType, out->Data, out->LengthOutput);
+                (void)f;
+            }
+        }
+    }
 
 	return NumRows;
 }
@@ -315,7 +318,6 @@ void Statement::FreeBindsIn()
 
 	free(BindsIn);
 	BindsIn = NULL;
-	NumBindsIn = 0;
 }
 
 void Statement::FreeBindsOut()
@@ -328,7 +330,6 @@ void Statement::FreeBindsOut()
 
 	free(BindsOut);
 	BindsOut = NULL;
-	NumBindsOut = 0;
 }
 
 void Statement::ShowMySQLStatementError(st_mysql_stmt* stmt, char const* call)
