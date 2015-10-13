@@ -220,3 +220,40 @@ bool Test5_Copy(class Connection* Con)
 
 	return true;
 }
+
+bool Test6_RangeBasedLoops(class Connection* Con)
+{
+	Result Res;
+	char const* Query = "SELECT name,age FROM test";
+	Con->Query(Query, strlen(Query), &Res);
+
+	int i = 0;
+	for (Row* R : Res)
+	{
+		for (Field* F : (*R))
+		{
+			if (F == NULL) return false;
+		}
+
+		if (i == 0)
+		{
+			if (strncmp(R->GetField(0)->AsString(), "John Doe", R->GetField(0)->GetLength()) != 0)
+				return false;
+
+			if (R->GetField(1)->AsUnsignedByte() != 42)
+				return false;
+		}
+		else if (i == 1)
+		{
+			if (strncmp(R->GetField(0)->AsString(), "Jane Doe", R->GetField(0)->GetLength()) != 0)
+				return false;
+
+			if (R->GetField(1)->AsUnsignedByte() != 41)
+				return false;
+		}
+
+		i++;
+	}
+
+	return true;
+}

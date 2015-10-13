@@ -6,3 +6,4 @@ bool Test3_QueryWithOutput(class Connection* Con);
 bool Test4_PreparedStatement(class Connection* Con);
 
 bool Test5_Copy(class Connection* Con);
+bool Test6_RangeBasedLoops(class Connection* Con);

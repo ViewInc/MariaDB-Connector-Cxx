@@ -4,7 +4,7 @@
 #include "MySQLCXX.h"
 #include "Test.h"
 
-#define kMaxTests 5
+#define kMaxTests 6
 
 int main(int argc, char* argv[])
 {
@@ -62,6 +62,16 @@ int main(int argc, char* argv[])
 		}
 
 		printf("[%d/%d] Test 5: Copy - SUCCESS\n", Count, kMaxTests);
+
+
+		Count++;
+		if (!Test6_RangeBasedLoops(&Con))
+		{
+			printf("[%d/%d] Test 6: Range-Based loops - FAILED\n", Count, kMaxTests);
+			return 1;
+		}
+
+		printf("[%d/%d] Test 6: Range-Based loops - SUCCESS\n", Count, kMaxTests);
 
 	}
 
