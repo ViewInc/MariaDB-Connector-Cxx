@@ -17,6 +17,7 @@ protected:
     RowIter(Row* pRow, unsigned int Pos);
 
 public:
+	bool operator==(RowIter const& other);
     bool operator!=(RowIter const& other);
     Field* operator*();
     RowIter const& operator++();
@@ -26,6 +27,9 @@ protected:
     unsigned int Pos;
 };
 
+/** Resul Iterator (for range-based loops).
+ *
+ */
 class ResultIter
 {
 friend class Result;
@@ -34,6 +38,7 @@ protected:
     ResultIter(Result* pResult, unsigned int Pos);
 
 public:
+	bool operator==(ResultIter const& other);
     bool operator!=(ResultIter const& other);
     Row* operator*();
     ResultIter const& operator++();
@@ -66,9 +71,14 @@ protected:
 	
 public:
 	/**
-	 * @return The length of the data
+	 * @return The length of the data.
 	 */
 	unsigned long GetLength();
+
+	/**
+	 * @return Type of the data.
+	 */
+	SQL_TYPE::Value GetType();
 	
 	char const* AsString();
 	void const* AsBinary();

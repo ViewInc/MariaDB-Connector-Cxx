@@ -83,6 +83,11 @@ unsigned long Field::GetLength()
 	return DataLength;
 }
 
+SQL_TYPE::Value Field::GetType()
+{
+	return DataType;
+}
+
 char const* Field::AsString()
 {
 	if (DataType == SQL_TYPE::STRING)
@@ -349,7 +354,7 @@ RowIter Row::begin()
 
 RowIter Row::end()
 {
-    return RowIter(this, FieldCount - 1);
+    return RowIter(this, FieldCount);
 }
 
 Result::Result()
@@ -464,7 +469,7 @@ ResultIter Result::begin()
 
 ResultIter Result::end()
 {
-    return ResultIter(this, RowCount - 1);
+    return ResultIter(this, RowCount);
 }
 
 
@@ -474,9 +479,14 @@ RowIter::RowIter(Row* pRow, unsigned int Pos)
     this->Pos = Pos;
 }
 
+bool RowIter::operator==(RowIter const& other)
+{
+	return Pos == other.Pos;
+}
+
 bool RowIter::operator!=(RowIter const& other)
 {
-    return Pos != other.Pos;
+    return !(Pos == other.Pos);
 }
 
 Field* RowIter::operator*()
@@ -496,9 +506,14 @@ ResultIter::ResultIter(Result* pResult, unsigned int Pos)
     this->Pos = Pos;
 }
 
+bool ResultIter::operator==(ResultIter const& other)
+{
+	return Pos == other.Pos;
+}
+
 bool ResultIter::operator!=(ResultIter const& other)
 {
-    return Pos != other.Pos;
+    return !(Pos == other.Pos);
 }
 
 Row* ResultIter::operator*()
