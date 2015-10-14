@@ -82,6 +82,7 @@
 Field::Field(char* MyField, unsigned long MyLength)
 {
     Data = malloc(MyLength + 1);
+	if (!Data) exit(1);
     memcpy(Data, MyField, MyLength);
     ((char*)Data)[MyLength] = '\0';
 
@@ -94,12 +95,14 @@ Field::Field(SQL_TYPE::Value Type, void* MyField, unsigned long MyLength)
 	if (Type == SQL_TYPE::STRING)
 	{
 		Data = malloc(MyLength + 1);
+		if (!Data) exit(1);
 		memcpy(Data, MyField, MyLength);
 		((char*)Data)[MyLength] = '\0';
 	}
 	else
 	{
 		Data = malloc(MyLength);
+		if (!Data) exit(1);
 		memcpy(Data, MyField, MyLength);
 	}
 
@@ -119,12 +122,14 @@ Field::Field(Field const& Other)
 	if (DataType == SQL_TYPE::STRING)
 	{
 		Data = malloc(DataLength + 1);
+		if (!Data) exit(1);
 		memcpy(Data, Other.Data, DataLength);
 		((char*)Data)[DataLength] = '\0';
 	}
 	else
 	{
 		Data = malloc(DataLength);
+		if (!Data) exit(1);
 		memcpy(Data, Other.Data, DataLength);
 	}
 }
@@ -140,12 +145,14 @@ Field& Field::operator=(Field const& Other)
 	if (DataType == SQL_TYPE::STRING)
 	{
 		Data = malloc(DataLength + 1);
+		if (!Data) exit(1);
 		memcpy(Data, Other.Data, DataLength);
 		((char*)Data)[DataLength] = '\0';
 	}
 	else
 	{
 		Data = malloc(DataLength);
+		if (!Data) exit(1);
 		memcpy(Data, Other.Data, DataLength);
 	}
 
