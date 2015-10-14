@@ -270,6 +270,8 @@ int Statement::FetchAll(Result* Res)
         for (unsigned int i = 0; i < NumRows; i++)
         {
             Row* r = new(Res->Rows + i) Row();
+// This warning is wrong. r cannot be null, unless some other thread changes NumRows.
+#pragma warning(suppress: 6011)
             r->FieldCount = NumBindsOut;
             r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
             if (!r->Fields) exit(1);
