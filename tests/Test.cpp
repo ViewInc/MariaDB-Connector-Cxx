@@ -6,13 +6,13 @@
 
 bool Test1_Preperation(Connection* Con)
 {
-	char const* query0 = "DROP DATABASE IF EXISTS testdb";
+	char const* query0 = "DROP DATABASE IF EXISTS `testdb`";
 	int AffectedRows0 = Con->Query(query0, strlen(query0));
 
-	char const* query1 = "CREATE DATABASE IF NOT EXISTS testdb";
+	char const* query1 = "CREATE DATABASE IF NOT EXISTS `testdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */";
 	int AffectedRows1 = Con->Query(query1, strlen(query1));
 
-	char const* query2 = "USE testdb";
+	char const* query2 = "USE `testdb`";
 	int AffectedRows2 = Con->Query(query2, strlen(query2));
 
 	if (AffectedRows0 != -1 && AffectedRows1 != -1 && AffectedRows2 != -1)
@@ -28,14 +28,14 @@ bool Test2_QueryWithoutOutput(Connection* Con)
 	char const* query0 = SQL(
 		CREATE TABLE IF NOT EXISTS `test` (
 			`id` int(10) NOT NULL AUTO_INCREMENT,
-			`name` varchar(255) NOT NULL,
-			`age` tinyint(4) UNSIGNED NOT NULL,
-			`salary` smallint(5) UNSIGNED NULL DEFAULT NULL,
-			`savings` int(10) NULL DEFAULT NULL,
-			`height` float NOT NULL,
-			`weight` double NOT NULL,
+			`name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+			`age` tinyint(4) UNSIGNED NOT NULL DEFAULT 0,
+			`salary` smallint(5) UNSIGNED NULL DEFAULT 0,
+			`savings` int(10) NULL DEFAULT 0,
+			`height` float NOT NULL DEFAULT 0,
+			`weight` double NOT NULL DEFAULT 0,
 			PRIMARY KEY(`id`)
-		) ENGINE = InnoDB DEFAULT CHARSET = utf8);
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci);
 	int AffectedRows0 = Con->Query(query0, strlen(query0));
 
 	char const* query1 = SQL(
