@@ -286,6 +286,12 @@ int Statement::FetchAll(Result* Res)
         }
     }
 
+    if (mysql_stmt_free_result(MyStatement))
+    {
+        ShowMySQLStatementError(MyStatement, "mysql_stmt_free_result()");
+        return -1;
+    }
+
 	return NumRows;
 }
 
