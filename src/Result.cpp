@@ -522,23 +522,25 @@ Result::~Result()
 
 int Result::CreateResult(MYSQL_RES* MyResult)
 {
+	if (Rows != NULL || bIsValid) return -1;
 	MYSQL_ROW MyRow;
-	unsigned int i;
+	unsigned int i = 0;
 
-	RowCount = (unsigned int)mysql_num_rows(MyResult);
-	Rows = (Row*)malloc(sizeof(Row) * RowCount);
-	if (!Rows) exit(1);
-
-	for (i = 0; i < RowCount; i++)
+	while ((MyRow = mysql_fetch_row(MyResult)))
 	{
-		if (!(MyRow = mysql_fetch_row(MyResult)))
-			break;
+		Rows = (Row*)realloc(Rows, sizeof(Row) * (i + 1));
+		if (!Rows) exit(1);
 
 		Row* r = new(Rows + i) Row(MyResult, MyRow);
 		(void)r; // Value is unused here.
+
+		i++;
 	}
 
-	bIsValid = true;
+	// Error checks are done by the caller.
+
+	RowCount = (unsigned int)mysql_num_rows(MyResult);
+	bIsValid = RowCount > 0;
 	return RowCount;
 }
 

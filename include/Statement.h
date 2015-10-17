@@ -61,6 +61,15 @@ protected:
 
 /** The prepared statements.
  *
+ * Execution steps:
+ *   1. Create prepared statement with a valid `Connection`. Or set it later via `SetConnection()`.
+ *   2. Initialize the statement by passing a valid SQL query to `Init()`.
+ *   3. Set the values of any parameters using `GetBindIn()`, once done call `BindIn()`.
+ *   4. Call `Execute()`.
+ *   5. If the statement produces a result set, configure the out buffers via `GetBindOut()`, once done call `BindOut()`.
+ *   6. Fetch the data row by row with `Fetch()`, or all at once with `FetchAll()`.
+ *   7. Repeat steps 3 through 6, by changing the parameters.
+ *
  * @author Arvid Gerstmann
  */
 class Statement
@@ -68,7 +77,7 @@ class Statement
 public:
 	/** Constructs a new Statement, without a connection.
 	 *
-	 * A connection has to be set, before use, through `setConnection()`.
+	 * @warning A valid connection has to be set, before use, through `setConnection()`.
 	 */
 	explicit Statement();
 

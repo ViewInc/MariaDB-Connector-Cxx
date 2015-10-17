@@ -99,20 +99,21 @@ int Connection::Query(char const* QueryStr, unsigned long Length)
 int Connection::Query(char const* QueryStr, unsigned long Length, Result* ResultOut)
 {
 	MYSQL_RES* Result;
+	my_ulonglong RetVal;
 	if (mysql_real_query(MySQL, QueryStr, Length))
 	{
 		ShowMySQLError(MySQL, "mysql_real_query()");
 		return -1;
 	}
 
-	Result = mysql_store_result(MySQL);
+	Result = mysql_use_result(MySQL);
 	if (Result)
 	{
 		if (ResultOut)
 		{
 			int RetVal = ResultOut->CreateResult(Result);
 
-			if (RetVal == ((my_ulonglong)-1))
+			if (RetVal == -1)
 			{
 				mysql_free_result(Result);
 				return -1;
@@ -126,6 +127,7 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 			return -1;
 		}
 
+		RetVal = mysql_num_rows(Result);
 		mysql_free_result(Result);
 	}
 	else
@@ -135,12 +137,12 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 			ShowMySQLError(MySQL, "mysql_store_result()");
 			return -1;
 		}
+
+		RetVal = mysql_affected_rows(MySQL);
 	}
 
-	my_ulonglong AffectedRows = mysql_affected_rows(MySQL);
-	if (AffectedRows == ((my_ulonglong)-1)) return -1;
-
-	return (int)AffectedRows;
+	if (RetVal == ((my_ulonglong)-1)) return -1;
+	return (int)RetVal;
 }
 
 bool Connection::GetError(char* Buffer, unsigned long Length)

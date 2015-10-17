@@ -252,45 +252,32 @@ bool Statement::Fetch()
 
 int Statement::FetchAll(Result* Res)
 {
-	// We want to buffer them all at once.
-	if (mysql_stmt_store_result(MyStatement))
+	if (NumBindsOut < 1) return 0;
+	if (Res->Rows != NULL || Res->IsValid()) return -1;
+
+	int NumRows = 0;
+	while (!mysql_stmt_fetch(MyStatement))
 	{
-		ShowMySQLStatementError(MyStatement, "mysql_stmt_store_result()");
-		return -1;
+		Res->Rows = (Row*)realloc(Res->Rows, sizeof(Row) * (NumRows + 1));
+		if (!Res->Rows) exit(1);
+		
+		Row* r = new(Res->Rows + (NumRows)) Row();
+		r->FieldCount = NumBindsOut;
+		r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
+		if (!r->Fields) exit(1);
+
+		for (unsigned int i = 0; i < NumBindsOut; i++)
+		{
+			Bind* out = GetBindOut(i);
+			Field* f = new(r->Fields + i) Field(out->DataType, out->Data, out->LengthOutput);
+			(void)f;
+		}
+
+		NumRows++;
 	}
 
-	unsigned int NumRows = (unsigned int)mysql_stmt_num_rows(MyStatement);
 	Res->RowCount = NumRows;
-	Res->bIsValid = true;
-	Res->Rows = (Row*)malloc(sizeof(Row) * NumRows);
-	if (!Res->Rows) exit(1);
-
-    if (NumBindsOut > 0)
-    {
-        for (unsigned int i = 0; i < NumRows; i++)
-        {
-            Row* r = new(Res->Rows + i) Row();
-// This warning is wrong. r cannot be null, unless some other thread changes NumRows.
-#pragma warning(suppress: 6011)
-            r->FieldCount = NumBindsOut;
-            r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
-            if (!r->Fields) exit(1);
-
-            mysql_stmt_fetch(MyStatement);
-            for (unsigned int j = 0; j < NumBindsOut; j++)
-            {
-                Bind* out = GetBindOut(j);
-                Field* f = new(r->Fields + j) Field(out->DataType, out->Data, out->LengthOutput);
-                (void)f;
-            }
-        }
-    }
-
-    if (mysql_stmt_free_result(MyStatement))
-    {
-        ShowMySQLStatementError(MyStatement, "mysql_stmt_free_result()");
-        return -1;
-    }
+	Res->bIsValid = NumRows > 0;
 
 	return NumRows;
 }
