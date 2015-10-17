@@ -7,6 +7,37 @@
 #include <string.h>
 #include "mariadb/mysql.h"
 
+// Typical Visual Studio mess.
+#if defined(_MSC_VER) && _MSC_VER < 1900
+#include <stdarg.h>
+#define snprintf c99_snprintf
+#define vsnprintf c99_vsnprintf
+
+inline int c99_vsnprintf(char *outBuf, size_t size, const char *format, va_list ap)
+{
+	int count = -1;
+
+	if (size != 0)
+		count = _vsnprintf_s(outBuf, size, _TRUNCATE, format, ap);
+	if (count == -1)
+		count = _vscprintf(format, ap);
+
+	return count;
+}
+
+inline int c99_snprintf(char *outBuf, size_t size, const char *format, ...)
+{
+	int count;
+	va_list ap;
+
+	va_start(ap, format);
+	count = c99_vsnprintf(outBuf, size, format, ap);
+	va_end(ap);
+
+	return count;
+}
+#endif
+
 Connection::Connection()
 	: bIsConnected(false)
 {
@@ -114,13 +145,13 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 
 bool Connection::GetError(char* Buffer, unsigned long Length)
 {
-    unsigned int errno = mysql_errno(MySQL);
-    if (errno != 0)
+    unsigned int err = mysql_errno(MySQL);
+    if (err != 0)
     {
         snprintf(Buffer, Length, "Error(%d) [%s] \"%s\"\n", mysql_errno(MySQL), mysql_sqlstate(MySQL), mysql_error(MySQL));
     }
 
-    return errno != 0;
+    return err != 0;
 }
 
 int Connection::GetAffectedRows()
@@ -152,7 +183,7 @@ char const* Connection::GetStatementInfo()
 
 long Connection::GetLastAutoIncrementID()
 {
-    return mysql_insert_id(MySQL);
+    return (long)mysql_insert_id(MySQL);
 }
 
 bool Connection::Ping()
