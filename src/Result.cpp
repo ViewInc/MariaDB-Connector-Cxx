@@ -528,6 +528,7 @@ int Result::CreateResult(MYSQL_RES* MyResult)
 
 	while ((MyRow = mysql_fetch_row(MyResult)))
 	{
+#pragma warning(suppress: 6308)
 		Rows = (Row*)realloc(Rows, sizeof(Row) * (i + 1));
 		if (!Rows) exit(1);
 

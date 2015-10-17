@@ -258,10 +258,12 @@ int Statement::FetchAll(Result* Res)
 	int NumRows = 0;
 	while (!mysql_stmt_fetch(MyStatement))
 	{
+#pragma warning(suppress: 6308)
 		Res->Rows = (Row*)realloc(Res->Rows, sizeof(Row) * (NumRows + 1));
 		if (!Res->Rows) exit(1);
 		
 		Row* r = new(Res->Rows + (NumRows)) Row();
+#pragma warning(suppress: 6011)
 		r->FieldCount = NumBindsOut;
 		r->Fields = (Field*)malloc(sizeof(Field) * NumBindsOut);
 		if (!r->Fields) exit(1);
