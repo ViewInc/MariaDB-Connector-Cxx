@@ -113,12 +113,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9">IsConnected</a> ()</td></tr>
 <tr class="memdesc:a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current status of the connection.  <a href="#a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9">More...</a><br /></td></tr>
 <tr class="separator:a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7650edc8c93f9bf80aeb76806c523102"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a7650edc8c93f9bf80aeb76806c523102">SelectDatabase</a> (char const *DatabaseName)</td></tr>
+<tr class="memdesc:a7650edc8c93f9bf80aeb76806c523102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default database.  <a href="#a7650edc8c93f9bf80aeb76806c523102">More...</a><br /></td></tr>
+<tr class="separator:a7650edc8c93f9bf80aeb76806c523102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad726e959bdbbde0760119401c0f78811"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#ad726e959bdbbde0760119401c0f78811">Query</a> (char const *QueryStr, unsigned long Length)</td></tr>
 <tr class="memdesc:ad726e959bdbbde0760119401c0f78811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a simple query, without expected result.  <a href="#ad726e959bdbbde0760119401c0f78811">More...</a><br /></td></tr>
 <tr class="separator:ad726e959bdbbde0760119401c0f78811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb24f87d4095a4a696719add9115209"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#adbb24f87d4095a4a696719add9115209">Query</a> (char const *QueryStr, unsigned long Length, class <a class="el" href="class_result.html">Result</a> *ResultOut)</td></tr>
 <tr class="memdesc:adbb24f87d4095a4a696719add9115209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a simple query, with expected results.  <a href="#adbb24f87d4095a4a696719add9115209">More...</a><br /></td></tr>
 <tr class="separator:adbb24f87d4095a4a696719add9115209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21130b15327f69bbb654b08c77c8445a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a21130b15327f69bbb654b08c77c8445a">GetError</a> (char *Buffer, unsigned long Length)</td></tr>
+<tr class="memdesc:a21130b15327f69bbb654b08c77c8445a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last error as a formatted string.  <a href="#a21130b15327f69bbb654b08c77c8445a">More...</a><br /></td></tr>
+<tr class="separator:a21130b15327f69bbb654b08c77c8445a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1220b2ea2b7fecef546c391e0cc4c189"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a1220b2ea2b7fecef546c391e0cc4c189">GetAffectedRows</a> ()</td></tr>
+<tr class="memdesc:a1220b2ea2b7fecef546c391e0cc4c189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the affected rows of the last query.  <a href="#a1220b2ea2b7fecef546c391e0cc4c189">More...</a><br /></td></tr>
+<tr class="separator:a1220b2ea2b7fecef546c391e0cc4c189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e5330bceb28f61a90fbac748f524cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#aa7e5330bceb28f61a90fbac748f524cc">SetCharacterSet</a> (char const *CharacterSet, char const *Collation)</td></tr>
+<tr class="memdesc:aa7e5330bceb28f61a90fbac748f524cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global character set.  <a href="#aa7e5330bceb28f61a90fbac748f524cc">More...</a><br /></td></tr>
+<tr class="separator:aa7e5330bceb28f61a90fbac748f524cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7deb3b747a603bcebb5f0175dfa4b874"><td class="memItemLeft" align="right" valign="top">char const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a7deb3b747a603bcebb5f0175dfa4b874">GetStatementInfo</a> ()</td></tr>
+<tr class="memdesc:a7deb3b747a603bcebb5f0175dfa4b874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a string providing information about the most recently executed statement.  <a href="#a7deb3b747a603bcebb5f0175dfa4b874">More...</a><br /></td></tr>
+<tr class="separator:a7deb3b747a603bcebb5f0175dfa4b874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2d15f78830ee1f03d49eb28fa42151"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#adb2d15f78830ee1f03d49eb28fa42151">GetLastAutoIncrementID</a> ()</td></tr>
+<tr class="memdesc:adb2d15f78830ee1f03d49eb28fa42151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value generated for an <code>AUTO_INCREMENT</code> column by the previous <code>INSERT</code> or <code>UPDATE</code>.  <a href="#adb2d15f78830ee1f03d49eb28fa42151">More...</a><br /></td></tr>
+<tr class="separator:adb2d15f78830ee1f03d49eb28fa42151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b643bd5227455afc03357709785ed85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a3b643bd5227455afc03357709785ed85">Ping</a> ()</td></tr>
+<tr class="memdesc:a3b643bd5227455afc03357709785ed85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the connection to the server is working.  <a href="#a3b643bd5227455afc03357709785ed85">More...</a><br /></td></tr>
+<tr class="separator:a3b643bd5227455afc03357709785ed85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad719ce00bca1f2db226261baa7afcf20"><td class="memItemLeft" align="right" valign="top">char const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#ad719ce00bca1f2db226261baa7afcf20">GetStatus</a> ()</td></tr>
+<tr class="memdesc:ad719ce00bca1f2db226261baa7afcf20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing the status of the mysql server.  <a href="#ad719ce00bca1f2db226261baa7afcf20">More...</a><br /></td></tr>
+<tr class="separator:ad719ce00bca1f2db226261baa7afcf20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaed24aa27b406753174673d85f77c10"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#afaed24aa27b406753174673d85f77c10">GetWarningCount</a> ()</td></tr>
+<tr class="memdesc:afaed24aa27b406753174673d85f77c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of errors, warnings, and notes generated after the previous statement.  <a href="#afaed24aa27b406753174673d85f77c10">More...</a><br /></td></tr>
+<tr class="separator:afaed24aa27b406753174673d85f77c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a663d5b48a487a8b6680326e511764881"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection.html#a663d5b48a487a8b6680326e511764881">EscapeString</a> (char *<a class="el" href="class_connection.html#ad726e959bdbbde0760119401c0f78811">Query</a>, char const *String)</td></tr>
+<tr class="memdesc:a663d5b48a487a8b6680326e511764881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escapes a string to be a legal SQL string, to use in a statement.  <a href="#a663d5b48a487a8b6680326e511764881">More...</a><br /></td></tr>
+<tr class="separator:a663d5b48a487a8b6680326e511764881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -255,6 +285,175 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a663d5b48a487a8b6680326e511764881"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Connection::EscapeString </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>Query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>String</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escapes a string to be a legal SQL string, to use in a statement. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>MariaDBs C library doesn't have mysql_real_escape_string_quote, that's why the old mysql_real_escape_string is used here. Keep that in mind. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Query</td><td>Valid buffer for the query. Must be atleast strlen(String)*2+1 bytes long. </td></tr>
+    <tr><td class="paramname">String</td><td>String to escape. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Length of the encoded string, or -1 on error. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-real-escape-string.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-real-escape-string.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1220b2ea2b7fecef546c391e0cc4c189"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Connection::GetAffectedRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the affected rows of the last query. </p>
+<dl class="section return"><dt>Returns</dt><dd>The affected rows (for UPDATE, DELETE, INSERT), or the rows in the result (for SELECT), or -1 on error. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-affected-rows.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-affected-rows.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a21130b15327f69bbb654b08c77c8445a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Connection::GetError </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>Buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>Length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the last error as a formatted string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Buffer</td><td>A char buffer. </td></tr>
+    <tr><td class="paramname">Length</td><td>The length of the supplied char buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wheter an error occured. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adb2d15f78830ee1f03d49eb28fa42151"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long Connection::GetLastAutoIncrementID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the value generated for an <code>AUTO_INCREMENT</code> column by the previous <code>INSERT</code> or <code>UPDATE</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 if the previous statement does not use an <code>AUTO_INCREMENT</code>, otherwise the id. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-insert-id.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-insert-id.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7deb3b747a603bcebb5f0175dfa4b874"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char const * Connection::GetStatementInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves a string providing information about the most recently executed statement. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Only returns a non-null value for INSERT INTO, SELECT, ALTER TABLE, UPDATE. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String or NULL if no information is available. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-info.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-info.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad719ce00bca1f2db226261baa7afcf20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char const * Connection::GetStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string containing the status of the mysql server. </p>
+<p>This includes uptime, number of running threads, questions, reloads, open tables etc. </p><dl class="section return"><dt>Returns</dt><dd>Status string. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-stat.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-stat.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afaed24aa27b406753174673d85f77c10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Connection::GetWarningCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of errors, warnings, and notes generated after the previous statement. </p>
+<dl class="section return"><dt>Returns</dt><dd>Warning count. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a7fa9d2baa3c0b5e1ac2e1f2d3349b2c9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -270,6 +469,26 @@ Friends</h2></td></tr>
 
 <p>Returns the current status of the connection. </p>
 <dl class="section return"><dt>Returns</dt><dd>Whether connected to MySQL server. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b643bd5227455afc03357709785ed85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Connection::Ping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks whether the connection to the server is working. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>If auto-reconnect is enabled, <code><a class="el" href="class_connection.html#a3b643bd5227455afc03357709785ed85" title="Checks whether the connection to the server is working. ">Ping()</a></code> will attempt to reconnect. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the connection is working. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-ping.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-ping.html</a> </dd></dl>
 
 </div>
 </div>
@@ -349,6 +568,64 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT), or -1 on error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7650edc8c93f9bf80aeb76806c523102"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Connection::SelectDatabase </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>DatabaseName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the default database. </p>
+<p>The specified database will be used for any subsequent queries.</p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the selection was successfull. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-select-db.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-select-db.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa7e5330bceb28f61a90fbac748f524cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Connection::SetCharacterSet </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>CharacterSet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>Collation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the global character set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CharacterSet</td><td>A valid MySQL character set (eg. utf8, utf8mb4, ascii). </td></tr>
+    <tr><td class="paramname">Collation</td><td>A valid MySQL collation (eg. utf8_general_ci, utf8mb4_unicode_ci). Can be NULL. in this case, the default collation for the character set will be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the query was successfull. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-set-character-set.html">https://dev.mysql.com/doc/refman/5.7/en/mysql-set-character-set.html</a> </dd></dl>
 
 </div>
 </div>

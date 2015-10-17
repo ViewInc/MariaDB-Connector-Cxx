@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['allow_5fconversion',['ALLOW_CONVERSION',['../_result_8cpp.html#a9c53080316ff156d497248c4a23d03ef',1,'Result.cpp']]],
   ['asbinary',['AsBinary',['../class_field.html#a492e8bf02e600bacb2b28c8908602964',1,'Field']]],
   ['asbyte',['AsByte',['../class_field.html#a1f47fef90e4a81ece884eb6f0723d586',1,'Field']]],
   ['asdouble',['AsDouble',['../class_field.html#a0fa30ad3c43f514a0cee6052c0b43fab',1,'Field']]],
