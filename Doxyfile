@@ -857,7 +857,8 @@ RECURSIVE              = YES
 # run.
 
 EXCLUDE                = tests \
-                         include/mariadb
+                         include/mariadb \
+                         deps
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
