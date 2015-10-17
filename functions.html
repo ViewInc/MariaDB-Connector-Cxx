@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_q"><span>q</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -157,6 +158,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>begin()
+: <a class="el" href="class_result.html#a5d8929970a89f2d55c1ff08489a6f38c">Result</a>
+, <a class="el" href="class_row.html#adc9fc8ca0627cb112958636088474f39">Row</a>
+</li>
 <li>BINARY
 : <a class="el" href="struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963a2e6846d2c69f564c179a5eff8571f360">SQL_TYPE</a>
 </li>
@@ -232,6 +237,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>end()
+: <a class="el" href="class_result.html#a1ddaeb2b086c79a6917d2b1cf20949c0">Result</a>
+, <a class="el" href="class_row.html#a3664982bd4e3e1212662b5b9eb4188ac">Row</a>
+</li>
+<li>EscapeString()
+: <a class="el" href="class_connection.html#a663d5b48a487a8b6680326e511764881">Connection</a>
+</li>
 <li>Execute()
 : <a class="el" href="class_statement.html#a70c0b5e03f327c72a9a068b23ced3b76">Statement</a>
 </li>
@@ -246,7 +258,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_statement.html#a50535656ec9de583b228e909fd1bcc2e">Statement</a>
 </li>
 <li>Field()
-: <a class="el" href="class_field.html#ab87dbfd0f9f0bbc72575d9723adfcd10">Field</a>
+: <a class="el" href="class_field.html#a2c107d46631d5170e480d8c80b19dda8">Field</a>
 </li>
 <li>FieldCount
 : <a class="el" href="class_row.html#a303b42c6d6097886d385c30596c7e6ee">Row</a>
@@ -267,6 +279,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GetAffectedRows()
+: <a class="el" href="class_connection.html#a1220b2ea2b7fecef546c391e0cc4c189">Connection</a>
+</li>
 <li>GetBindIn()
 : <a class="el" href="class_statement.html#aa0ddbcc8f3c44211ecb79a15a6407938">Statement</a>
 </li>
@@ -276,11 +291,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>GetData()
 : <a class="el" href="class_bind.html#a9dd755bde0d7c5ab532168d04d68151e">Bind</a>
 </li>
+<li>GetError()
+: <a class="el" href="class_connection.html#a21130b15327f69bbb654b08c77c8445a">Connection</a>
+</li>
 <li>GetField()
 : <a class="el" href="class_row.html#a730f5847a857b319d9b373a7a6ed82a0">Row</a>
 </li>
 <li>GetFieldCount()
 : <a class="el" href="class_row.html#a350878bd7c71889d2e532231b9d9da24">Row</a>
+</li>
+<li>GetLastAutoIncrementID()
+: <a class="el" href="class_connection.html#adb2d15f78830ee1f03d49eb28fa42151">Connection</a>
 </li>
 <li>GetLength()
 : <a class="el" href="class_bind.html#af56024d975f5fc2829241f9b1b220a58">Bind</a>
@@ -291,6 +312,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>GetRowCount()
 : <a class="el" href="class_result.html#aedf87b5720707b42129079aba141a267">Result</a>
+</li>
+<li>GetStatementInfo()
+: <a class="el" href="class_connection.html#a7deb3b747a603bcebb5f0175dfa4b874">Connection</a>
+</li>
+<li>GetStatus()
+: <a class="el" href="class_connection.html#ad719ce00bca1f2db226261baa7afcf20">Connection</a>
+</li>
+<li>GetType()
+: <a class="el" href="class_field.html#a3342a8c44ea4ea4eb0882e830f5eba16">Field</a>
+</li>
+<li>GetWarningCount()
+: <a class="el" href="class_connection.html#afaed24aa27b406753174673d85f77c10">Connection</a>
 </li>
 </ul>
 
@@ -354,11 +387,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>operator!=()
+: <a class="el" href="class_result_iter.html#a1639fb721972f5a3f33cdd22f8bd9f59">ResultIter</a>
+, <a class="el" href="class_row_iter.html#ac0638d9cb2bb3b7eea916631306b615c">RowIter</a>
+</li>
+<li>operator*()
+: <a class="el" href="class_result_iter.html#acdd49f9d27a2ad912efac726860facde">ResultIter</a>
+, <a class="el" href="class_row_iter.html#a01585fd9363575f64a436b95f816c466">RowIter</a>
+</li>
+<li>operator++()
+: <a class="el" href="class_result_iter.html#ad4dbfac151c6bea7ad0bda5b4ba6ef48">ResultIter</a>
+, <a class="el" href="class_row_iter.html#a0ad16ea4c6d54018f40a874afcb650ea">RowIter</a>
+</li>
 <li>operator=()
 : <a class="el" href="class_bind.html#a9fce78bf8489cf49420d730d66949dbe">Bind</a>
 , <a class="el" href="class_field.html#a011a8dc1a8f459e83070f46edd24637c">Field</a>
 , <a class="el" href="class_result.html#abb25eb344b66cd92d9d079dc19bc05e1">Result</a>
 , <a class="el" href="class_row.html#af707c3826bcf446fe94b82397cd063d9">Row</a>
+</li>
+<li>operator==()
+: <a class="el" href="class_result_iter.html#aa20b3831146834c635ad964984f90dc3">ResultIter</a>
+, <a class="el" href="class_row_iter.html#ad90d2632f27107db194fe7de6ccf97ed">RowIter</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>Ping()
+: <a class="el" href="class_connection.html#a3b643bd5227455afc03357709785ed85">Connection</a>
+</li>
+<li>Pos
+: <a class="el" href="class_result_iter.html#a2ac9c081821745b8f44ed1398639fc67">ResultIter</a>
+, <a class="el" href="class_row_iter.html#a3b3c4fd790e6f3ed8fd177322fcfb2c7">RowIter</a>
+</li>
+<li>pResult
+: <a class="el" href="class_result_iter.html#a9043f192862097477bb7ac5e01931b5d">ResultIter</a>
+</li>
+<li>pRow
+: <a class="el" href="class_row_iter.html#ad96271ae177ab71db04ec9512415fdda">RowIter</a>
 </li>
 </ul>
 
@@ -376,15 +442,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_result.html#a806a828b9546dea0761db7a2d01a4563">Result</a>
 </li>
 <li>Result()
-: <a class="el" href="class_result.html#a3c4a349c3795ad219e8d5ca1d44c62a4">Result</a>
+: <a class="el" href="class_result.html#a90f44667e23d25ccdeac37f00a74657b">Result</a>
+, <a class="el" href="class_result_iter.html#aeda2b0238e1d97468018d291a2180853">ResultIter</a>
 , <a class="el" href="class_row.html#aeda2b0238e1d97468018d291a2180853">Row</a>
+</li>
+<li>ResultIter()
+: <a class="el" href="class_result_iter.html#a790a7e9057e25f97a9cd714f5bf9f122">ResultIter</a>
 </li>
 <li>Row
 : <a class="el" href="class_field.html#a830c9c8d43a693758fe4e27a31156fa1">Field</a>
 , <a class="el" href="class_row.html#a5cca50abc389396e26ec68cbd3fb6596">Row</a>
+, <a class="el" href="class_row_iter.html#a830c9c8d43a693758fe4e27a31156fa1">RowIter</a>
 </li>
 <li>RowCount
 : <a class="el" href="class_result.html#a2ddeda17e557ee6025523df84e14f701">Result</a>
+</li>
+<li>RowIter()
+: <a class="el" href="class_row_iter.html#a9f4225b5ce76e31ba1e67a5aed4f0e91">RowIter</a>
 </li>
 <li>Rows
 : <a class="el" href="class_result.html#af65d0dbe733d624b6464c022de04a504">Result</a>
@@ -393,6 +467,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SelectDatabase()
+: <a class="el" href="class_connection.html#a7650edc8c93f9bf80aeb76806c523102">Connection</a>
+</li>
+<li>SetCharacterSet()
+: <a class="el" href="class_connection.html#aa7e5330bceb28f61a90fbac748f524cc">Connection</a>
+</li>
 <li>SetConnection()
 : <a class="el" href="class_statement.html#a93b31fae72eb0d71b9daa043e7131dbf">Statement</a>
 </li>
@@ -417,7 +497,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="class_field.html#adab6e13caeb507948d0ee0b059b1a1af">Field</a>
 , <a class="el" href="class_result.html#adab6e13caeb507948d0ee0b059b1a1af">Result</a>
 , <a class="el" href="class_row.html#adab6e13caeb507948d0ee0b059b1a1af">Row</a>
-, <a class="el" href="class_statement.html#a462a77910215910891f4f826126c9bcd">Statement</a>
+, <a class="el" href="class_statement.html#ab48acf95bec5dea254f44390c6221eb1">Statement</a>
 </li>
 <li>STRING
 : <a class="el" href="struct_s_q_l___t_y_p_e.html#a2ad43c0413d655b655c3b5ca694d1963ac9434be0745affcbaeb9e4f14f45f164">SQL_TYPE</a>

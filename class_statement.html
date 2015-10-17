@@ -171,6 +171,15 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The prepared statements. </p>
+<p>Execution steps:</p><ol type="1">
+<li>Create prepared statement with a valid <code><a class="el" href="class_connection.html" title="The main class of the MariaDB connection. ">Connection</a></code>. Or set it later via <code><a class="el" href="class_statement.html#a93b31fae72eb0d71b9daa043e7131dbf" title="Set the used connection. ">SetConnection()</a></code>.</li>
+<li>Initialize the statement by passing a valid SQL query to <code><a class="el" href="class_statement.html#a5290dbeb5b7a220516a844ce6ddefdb2" title="Initialize the Statement. ">Init()</a></code>.</li>
+<li>Set the values of any parameters using <code><a class="el" href="class_statement.html#aa0ddbcc8f3c44211ecb79a15a6407938" title="Get the output binding for the index. ">GetBindIn()</a></code>, once done call <code><a class="el" href="class_statement.html#acf1e71c567790305423ff212c6dfce52" title="Binds the input bindings to the statement. ">BindIn()</a></code>.</li>
+<li>Call <code><a class="el" href="class_statement.html#a70c0b5e03f327c72a9a068b23ced3b76" title="Executes the statement. ">Execute()</a></code>.</li>
+<li>If the statement produces a result set, configure the out buffers via <code><a class="el" href="class_statement.html#af305da0cac3caf4936781127a9373534" title="Get the input binding for the index. ">GetBindOut()</a></code>, once done call <code><a class="el" href="class_statement.html#a186d73083bd9e516c5757e2a1fdef65f" title="Binds the output bindings to the statement. ">BindOut()</a></code>.</li>
+<li>Fetch the data row by row with <code><a class="el" href="class_statement.html#ab0b31402ce109c58736fc1a6e2f16205" title="Fetches one row of the result. ">Fetch()</a></code>, or all at once with <code><a class="el" href="class_statement.html#a50535656ec9de583b228e909fd1bcc2e" title="Fetches and buffers all rows of the result. ">FetchAll()</a></code>.</li>
+<li>Repeat steps 3 through 6, by changing the parameters.</li>
+</ol>
 <dl class="section author"><dt>Author</dt><dd>Arvid Gerstmann </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab48acf95bec5dea254f44390c6221eb1"></a>
@@ -195,7 +204,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs a new <a class="el" href="class_statement.html" title="The prepared statements. ">Statement</a>, without a connection. </p>
-<p>A connection has to be set, before use, through <code>setConnection()</code>. </p>
+<dl class="section warning"><dt>Warning</dt><dd>A valid connection has to be set, before use, through <code>setConnection()</code>. </dd></dl>
 
 </div>
 </div>

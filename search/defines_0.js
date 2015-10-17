@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['noexcept',['NOEXCEPT',['../_types_8h.html#a10a59554805ac7ce3905fd3540f98137',1,'Types.h']]]
+  ['allow_5fconversion',['ALLOW_CONVERSION',['../_result_8cpp.html#a9c53080316ff156d497248c4a23d03ef',1,'Result.cpp']]]
 ];
