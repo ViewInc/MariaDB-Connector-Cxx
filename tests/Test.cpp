@@ -98,14 +98,12 @@ bool Test4_PreparedStatement(Connection* Con)
 	Stmt.GetBindOut(0)->SetOutput(SQL_TYPE::STRING, 255);
 	Stmt.GetBindOut(1)->SetOutput(SQL_TYPE::UINT8, 1);
 	Stmt.GetBindOut(2)->SetOutput(SQL_TYPE::UINT16, 2);
-	Stmt.GetBindOut(3)->SetOutput(SQL_TYPE::UINT32, 4);
+	Stmt.GetBindOut(3)->SetOutput(SQL_TYPE::INT32, 4);
 	Stmt.GetBindOut(4)->SetOutput(SQL_TYPE::FLOAT, 4);
 	Stmt.GetBindOut(5)->SetOutput(SQL_TYPE::DOUBLE, 8);
 	Stmt.BindIn();
 	Stmt.BindOut();
 	Stmt.Execute();
-
-    Stmt.AutoFetchAll(NULL);
 
 	// Fetch All.
 	Result Res;

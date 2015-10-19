@@ -4,7 +4,15 @@
 
 int SQLTypeToMySQLType(SQL_TYPE::Value Type)
 {
-    return Type;
+	switch (Type)
+	{
+		case SQL_TYPE::UINT8: return SQL_TYPE::INT8;
+		case SQL_TYPE::UINT16: return SQL_TYPE::INT16;
+		case SQL_TYPE::UINT24: return SQL_TYPE::INT24;
+		case SQL_TYPE::UINT32: return SQL_TYPE::INT32;
+		case SQL_TYPE::UINT64: return SQL_TYPE::INT64;
+		default: return Type;
+	}
 }
 
 SQL_TYPE::Value MySQLTypeToSQLType(int Type, bool IsUnsigned)

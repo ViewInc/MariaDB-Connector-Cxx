@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Types.h"
+#include <stdint.h>
 
 class Field;
 class Row;
@@ -83,15 +84,15 @@ public:
 	char const* AsString();
 	void const* AsBinary();
 	
-	signed char AsByte();
-	signed short AsShort();
-	signed int AsInteger();
-	signed long AsLong();
+	int8_t AsByte();
+	int16_t AsShort();
+	int32_t AsInteger();
+	int64_t AsLong();
 	
-	unsigned char AsUnsignedByte();
-	unsigned short AsUnsignedShort();
-	unsigned int AsUnsignedInteger();
-	unsigned long AsUnsignedLong();
+	uint8_t AsUnsignedByte();
+	uint16_t AsUnsignedShort();
+	uint32_t AsUnsignedInteger();
+	uint64_t AsUnsignedLong();
 	
 	float AsFloat();
 	double AsDouble();

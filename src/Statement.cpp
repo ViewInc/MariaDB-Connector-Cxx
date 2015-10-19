@@ -102,6 +102,8 @@ Statement::Statement()
     , NumBindsOut(0)
     , MyBindsIn(NULL)
     , MyBindsOut(NULL)
+	, OutBindsGenerated(false)
+	, OutBindsBound(false)
 {
 }
 
@@ -115,6 +117,8 @@ Statement::Statement(Connection* ConIn)
 	, NumBindsOut(0)
 	, MyBindsIn(NULL)
 	, MyBindsOut(NULL)
+	, OutBindsGenerated(false)
+	, OutBindsBound(false)
 {
 }
 
@@ -225,6 +229,25 @@ bool Statement::BindOut()
 		}
 	}
 
+	OutBindsBound = true;
+	return true;
+}
+
+bool Statement::GenerateBindOut()
+{
+	MYSQL_RES* MetaData = mysql_stmt_result_metadata(MyStatement);
+	if (MetaData == NULL) return false;
+
+	MYSQL_FIELD* Field;
+	int NumFields = mysql_num_fields(MetaData);
+	for (unsigned int i = 0; i < NumFields; i++)
+	{
+		Field = mysql_fetch_field_direct(MetaData, i);
+		GetBindOut(i)->SetOutput(MySQLTypeToSQLType(Field->type, (Field->flags & UNSIGNED_FLAG)), Field->length);
+	}
+
+	mysql_free_result(MetaData);
+	OutBindsGenerated = true;
 	return true;
 }
 
@@ -287,21 +310,13 @@ int Statement::FetchAll(Result* Res)
 
 int Statement::AutoFetchAll(Result *Res)
 {
-//    if (Res->Rows != NULL || Res->IsValid()) return -1;
-    MYSQL_RES* MetaData = mysql_stmt_result_metadata(MyStatement);
-    if (MetaData == NULL) return 0;
+	int NumRows = Execute();
+	if (NumRows < 1) return NumRows;
 
-    MYSQL_FIELD* Field;
-    int NumFields = mysql_num_fields(MetaData);
-    for (unsigned int i = 0; i < NumFields; i++)
-    {
-        Field = mysql_fetch_field_direct(MetaData, i);
-        printf("Field: Name: %s | Length: %ld | Type: %d\n", Field->name, Field->length, Field->type);
-        GetBindOut(i)->SetOutput(MySQLTypeToSQLType(Field->type, (Field->flags & UNSIGNED_FLAG)), Field->length);
-    }
+	if (!OutBindsGenerated) if (!GenerateBindOut()) return -1;
+	if (!OutBindsBound) if (!BindOut()) return -1;
 
-    mysql_free_result(MetaData);
-    return 0;
+	return FetchAll(Res);
 }
 
 Bind* Statement::GetBindIn(unsigned int Index)

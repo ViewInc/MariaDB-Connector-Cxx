@@ -119,6 +119,12 @@ public:
 	 */
 	bool BindOut();
 
+	/** Generates the output binding automatically.
+	 *
+	 * @return Whether the generation was successfull.
+	 */
+	bool GenerateBindOut();
+
 	/** Executes the statement.
 	 *
 	 * @attention All input and output bidings should be setup via `BindIn()` and `BindOut()
@@ -188,4 +194,7 @@ protected:
 	unsigned int NumBindsOut;
 	struct st_mysql_bind* MyBindsIn;
 	struct st_mysql_bind* MyBindsOut;
+
+	bool OutBindsGenerated;
+	bool OutBindsBound;
 };

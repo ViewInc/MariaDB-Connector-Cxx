@@ -70,12 +70,12 @@ Tout toInt(Tin in)
 	else if (DataType == SQL_TYPE::FLOAT) \
 	{ \
 		float Original = *(float*)Data; \
-		RetVal = toInt<T>(Original); \
+		RetVal = static_cast<T>(Original); \
 	} \
 	else if (DataType == SQL_TYPE::DOUBLE) \
 	{ \
 		double Original = *(double*)Data; \
-		RetVal = toInt<T>(Original); \
+		RetVal = static_cast<T>(Original); \
 	}
 
 Field::Field(char* MyField, unsigned long MyLength)
@@ -183,16 +183,16 @@ void const* Field::AsBinary()
 	return Data;
 }
 
-signed char Field::AsByte()
+int8_t Field::AsByte()
 {
-	signed char RetVal = 0;
+	int8_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (signed char)strtol((char*)Data, NULL, 10);
+		RetVal = (int8_t)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::INT8)
 	{
-		RetVal = *(signed char*)Data;
+		RetVal = *(int8_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
     CONVERT_TO(int8_t);
@@ -201,16 +201,16 @@ signed char Field::AsByte()
 	return RetVal;
 }
 
-signed short Field::AsShort()
+int16_t Field::AsShort()
 {
-	signed short RetVal = 0;
+	int16_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (signed short)strtol((char*)Data, NULL, 10);
+		RetVal = (int16_t)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::INT16)
 	{
-		RetVal = *(signed short*)Data;
+		RetVal = *(int16_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(int16_t);
@@ -219,16 +219,16 @@ signed short Field::AsShort()
 	return RetVal;
 }
 
-signed int Field::AsInteger()
+int32_t Field::AsInteger()
 {
-	signed int RetVal = 0;
+	int32_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (signed int)strtol((char*)Data, NULL, 10);
+		RetVal = (int32_t)strtol((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::INT32)
 	{
-		RetVal = *(signed int*)Data;
+		RetVal = *(int32_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(int32_t);
@@ -237,16 +237,16 @@ signed int Field::AsInteger()
 	return RetVal;
 }
 
-signed long Field::AsLong()
+int64_t Field::AsLong()
 {
-	signed long RetVal = 0;
+	int64_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (signed long)strtol((char*)Data, NULL, 10);
+		RetVal = (int64_t)strtoll((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::INT64)
 	{
-		RetVal = *(signed long*)Data;
+		RetVal = *(int64_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(int64_t);
@@ -255,16 +255,16 @@ signed long Field::AsLong()
 	return RetVal;
 }
 
-unsigned char Field::AsUnsignedByte()
+uint8_t Field::AsUnsignedByte()
 {
-	unsigned char RetVal = 0;
+	uint8_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (unsigned char)strtoul((char*)Data, NULL, 10);
+		RetVal = (uint8_t)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UINT8)
 	{
-		RetVal = *(unsigned char*)Data;
+		RetVal = *(uint8_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(uint8_t);
@@ -273,16 +273,16 @@ unsigned char Field::AsUnsignedByte()
 	return RetVal;
 }
 
-unsigned short Field::AsUnsignedShort()
+uint16_t Field::AsUnsignedShort()
 {
-	unsigned short RetVal = 0;
+	uint16_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (unsigned short)strtoul((char*)Data, NULL, 10);
+		RetVal = (uint16_t)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UINT16)
 	{
-		RetVal = *(unsigned short*)Data;
+		RetVal = *(uint16_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(uint16_t);
@@ -291,16 +291,16 @@ unsigned short Field::AsUnsignedShort()
 	return RetVal;
 }
 
-unsigned int Field::AsUnsignedInteger()
+uint32_t Field::AsUnsignedInteger()
 {
-	unsigned int RetVal = 0;
+	uint32_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (unsigned int)strtoul((char*)Data, NULL, 10);
+		RetVal = (uint32_t)strtoul((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UINT32)
 	{
-		RetVal = *(unsigned int*)Data;
+		RetVal = *(uint32_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(uint32_t);
@@ -309,16 +309,16 @@ unsigned int Field::AsUnsignedInteger()
 	return RetVal;
 }
 
-unsigned long Field::AsUnsignedLong()
+uint64_t Field::AsUnsignedLong()
 {
-	unsigned long RetVal = 0;
+	uint64_t RetVal = 0;
 	if (DataType == SQL_TYPE::STRING)
 	{
-		RetVal = (unsigned long)strtoul((char*)Data, NULL, 10);
+		RetVal = (uint64_t)strtoull((char*)Data, NULL, 10);
 	}
 	else if (DataType == SQL_TYPE::UINT64)
 	{
-		RetVal = *(unsigned long*)Data;
+		RetVal = *(uint64_t*)Data;
 	}
 #if ALLOW_CONVERSION == 1
 	CONVERT_TO(uint64_t);
@@ -339,9 +339,6 @@ float Field::AsFloat()
 	{
 		RetVal = *(float*)Data;
 	}
-#if ALLOW_CONVERSION == 1
-	CONVERT_TO(float);
-#endif
 
 	return RetVal;
 }
@@ -357,9 +354,6 @@ double Field::AsDouble()
 	{
 		RetVal = *(double*)Data;
 	}
-#if ALLOW_CONVERSION == 1
-	CONVERT_TO(double);
-#endif
 
 	return RetVal;
 }
