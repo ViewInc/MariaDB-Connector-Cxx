@@ -148,6 +148,11 @@ public:
 	 */
 	int FetchAll(class Result* Res);
 
+    /** Fetches, and automatically creates the output buffers.
+     *
+     */
+    int AutoFetchAll(class Result* Res);
+
 	/** Get the output binding for the index.
 	 *
 	 * @param Index The index of the output.

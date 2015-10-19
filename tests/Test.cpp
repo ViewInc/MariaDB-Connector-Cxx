@@ -94,16 +94,18 @@ bool Test4_PreparedStatement(Connection* Con)
 	Stmt.Init("SELECT name,age,salary,savings,height,weight FROM test WHERE id=?");
 
 	int id = 1;
-	Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id, sizeof(int));
+	Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INT32, &id, 4);
 	Stmt.GetBindOut(0)->SetOutput(SQL_TYPE::STRING, 255);
-	Stmt.GetBindOut(1)->SetOutput(SQL_TYPE::UBYTE, 1);
-	Stmt.GetBindOut(2)->SetOutput(SQL_TYPE::USHORT, 2);
-	Stmt.GetBindOut(3)->SetOutput(SQL_TYPE::INTEGER, 4);
+	Stmt.GetBindOut(1)->SetOutput(SQL_TYPE::UINT8, 1);
+	Stmt.GetBindOut(2)->SetOutput(SQL_TYPE::UINT16, 2);
+	Stmt.GetBindOut(3)->SetOutput(SQL_TYPE::UINT32, 4);
 	Stmt.GetBindOut(4)->SetOutput(SQL_TYPE::FLOAT, 4);
 	Stmt.GetBindOut(5)->SetOutput(SQL_TYPE::DOUBLE, 8);
 	Stmt.BindIn();
 	Stmt.BindOut();
 	Stmt.Execute();
+
+    Stmt.AutoFetchAll(NULL);
 
 	// Fetch All.
 	Result Res;
@@ -149,7 +151,7 @@ bool Test4_PreparedStatement(Connection* Con)
         return false;
 
     int id2 = 2;
-    Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id2, sizeof(int));
+    Stmt.GetBindIn(0)->SetInput(SQL_TYPE::INT32, &id2, sizeof(int));
 	Stmt.BindIn();
 	Stmt.Execute();
 	Stmt.Fetch();
@@ -186,7 +188,7 @@ bool Test5_Copy(class Connection* Con)
 	Stmt1.Init("SELECT name FROM test WHERE id=?");
 
 	int id = 1;
-	Stmt1.GetBindIn(0)->SetInput(SQL_TYPE::INTEGER, &id, sizeof(int));
+	Stmt1.GetBindIn(0)->SetInput(SQL_TYPE::INT32, &id, sizeof(int));
 	Stmt1.GetBindOut(0)->SetOutput(SQL_TYPE::STRING, 255);
 	Stmt1.BindIn();
 	Stmt1.BindOut();
