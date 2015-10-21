@@ -43,3 +43,30 @@ bool SQLTypeIsUnsigned(SQL_TYPE::Value Type)
             || Type == SQL_TYPE::UINT32
             || Type == SQL_TYPE::UINT64);
 }
+
+int SQLTypeLength(SQL_TYPE::Value Type)
+{
+	switch (Type)
+	{
+		case SQL_TYPE::INT8: return 1;
+		case SQL_TYPE::INT16: return 2;
+		case SQL_TYPE::INT24: return 3;
+		case SQL_TYPE::INT32: return 4;
+		case SQL_TYPE::INT64: return 8;
+		case SQL_TYPE::UINT8: return 1;
+		case SQL_TYPE::UINT16: return 2;
+		case SQL_TYPE::UINT24: return 3;
+		case SQL_TYPE::UINT32: return 4;
+		case SQL_TYPE::UINT64: return 8;
+		case SQL_TYPE::FLOAT: return 4;
+		case SQL_TYPE::DOUBLE: return 8;
+		case SQL_TYPE::NULLTYPE: return 0;
+		case SQL_TYPE::TIMESTAMP: return sizeof(MYSQL_TIME);
+		case SQL_TYPE::DATE: return sizeof(MYSQL_TIME);
+		case SQL_TYPE::TIME: return sizeof(MYSQL_TIME);
+		case SQL_TYPE::DATETIME: return sizeof(MYSQL_TIME);
+		case SQL_TYPE::YEAR: return 1;
+		case SQL_TYPE::NEWDATE: return sizeof(MYSQL_TIME);
+		default: return -1;
+	}
+}

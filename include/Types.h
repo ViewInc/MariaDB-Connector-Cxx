@@ -57,6 +57,21 @@ struct SQL_TYPE
     };
 };
 
+/** Convert SQL_TYPE to MYSQL_VALUE */
 int SQLTypeToMySQLType(SQL_TYPE::Value Type);
+
+/** Convert MYSQL_VALUE to SQL_TYPE */
 SQL_TYPE::Value MySQLTypeToSQLType(int Type, bool IsUnsigned);
+
+/** Retrieves the signedness of the specified type.
+ *
+ * @remarks Will return false for types not applicable for signedness.
+ * @return Whether it's unsigned.
+ */
 bool SQLTypeIsUnsigned(SQL_TYPE::Value Type);
+
+/** Retrieves the length for the specified type.
+ *
+ * @return Will return the correct length, or -1 for error.
+ */
+int SQLTypeLength(SQL_TYPE::Value Type);

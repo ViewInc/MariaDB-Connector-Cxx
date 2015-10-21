@@ -28,7 +28,7 @@ protected:
     unsigned int Pos;
 };
 
-/** Resul Iterator (for range-based loops).
+/** Result Iterator (for range-based loops).
  *
  */
 class ResultIter

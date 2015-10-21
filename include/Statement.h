@@ -26,6 +26,17 @@ public:
 	 */
 	void SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Length);
 
+	/** Prepares the binding for input.
+	*
+	* @param Type Type of the input buffer.
+	* @param Buffer Input data.
+	* @remarks The data of specified length will be *copied* into the binding.
+	* @remarks Will guess the length depending on the type, and call `SetOutput` with the
+	* correct length.
+	* @warning Does not work for any variable length types, like VARCHAR.
+	*/
+	void SetInput(SQL_TYPE::Value Type, void const* Buffer);
+
 	/** Prepares the binding for output.
 	 * 
 	 * @param Type Type of the output buffer.
@@ -34,6 +45,15 @@ public:
 	 * exceeds the length will not be returned.
 	 */
 	void SetOutput(SQL_TYPE::Value Type, unsigned long Length);
+
+	/** Prepares the binding for output.
+	*
+	* @param Type Type of the output buffer.
+	* @remarks Will guess the length depending on the type, and call `SetOutput` with the
+	* correct length.
+	* @warning Does not work for any variable length types, like VARCHAR.
+	*/
+	void SetOutput(SQL_TYPE::Value Type);
 
 	/** Access the buffered data */
 	void const* GetData();

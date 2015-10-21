@@ -37,6 +37,11 @@ void Bind::SetInput(SQL_TYPE::Value Type, void const* Buffer, unsigned long Leng
 	bIsInput = true;
 }
 
+void Bind::SetInput(SQL_TYPE::Value Type, void const* Buffer)
+{
+	SetInput(Type, Buffer, SQLTypeLength(Type));
+}
+
 void Bind::SetOutput(SQL_TYPE::Value Type, unsigned long Length)
 {
 	if (Data) free(Data);
@@ -48,6 +53,11 @@ void Bind::SetOutput(SQL_TYPE::Value Type, unsigned long Length)
 	memset(Data, 0, Length);
 
 	bIsInput = false;
+}
+
+void Bind::SetOutput(SQL_TYPE::Value Type)
+{
+	SetOutput(Type, SQLTypeLength(Type));
 }
 
 void const* Bind::GetData()
