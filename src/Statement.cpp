@@ -250,10 +250,10 @@ bool Statement::GenerateBindOut()
 
 	MYSQL_FIELD* Field;
 	int NumFields = mysql_num_fields(MetaData);
-	for (unsigned int i = 0; i < NumFields; i++)
+	for (int i = 0; i < NumFields; i++)
 	{
 		Field = mysql_fetch_field_direct(MetaData, i);
-		GetBindOut(i)->SetOutput(MySQLTypeToSQLType(Field->type, (Field->flags & UNSIGNED_FLAG)), Field->length);
+		GetBindOut(i)->SetOutput(MySQLTypeToSQLType(Field->type, (Field->flags & UNSIGNED_FLAG) != 0), Field->length);
 	}
 
 	mysql_free_result(MetaData);
