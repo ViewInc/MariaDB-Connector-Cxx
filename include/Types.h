@@ -12,6 +12,7 @@
 #endif
 
 // Typical Visual Studio mess.
+#include <stdio.h>
 #if defined(_MSC_VER) && _MSC_VER < 1900
 #include <stdarg.h>
 #define snprintf c99_snprintf
