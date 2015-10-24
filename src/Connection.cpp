@@ -116,6 +116,7 @@ int Connection::Query(char const* QueryStr, unsigned long Length, Result* Result
 
 bool Connection::GetError(char* Buffer, unsigned long Length)
 {
+	memset(Buffer, 0, Length);
     unsigned int err = mysql_errno(MySQL);
     if (err != 0)
     {

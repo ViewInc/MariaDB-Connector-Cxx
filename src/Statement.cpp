@@ -341,6 +341,7 @@ void Statement::SetConnection(Connection* ConIn)
 
 bool Statement::GetError(char* Buffer, unsigned long Length)
 {
+	memset(Buffer, 0, Length);
 	unsigned int err = mysql_stmt_errno(MyStatement);
 	if (err != 0)
 	{
