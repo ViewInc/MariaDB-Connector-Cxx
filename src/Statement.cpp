@@ -318,17 +318,6 @@ int Statement::FetchAll(Result* Res)
 	return NumRows;
 }
 
-int Statement::AutoFetchAll(Result *Res)
-{
-	int NumRows = Execute();
-	if (NumRows < 1) return NumRows;
-
-	if (!OutBindsGenerated) if (!GenerateBindOut()) return -1;
-	if (!OutBindsBound) if (!BindOut()) return -1;
-
-	return FetchAll(Res);
-}
-
 Bind* Statement::GetBindIn(unsigned int Index)
 {
 	if (!Con) return NULL;
