@@ -193,6 +193,9 @@ public:
 	/** Set the used connection. */
 	void SetConnection(class Connection* Con);
 
+	/** Retrieves the latest error */
+	bool GetError(char* Buffer, unsigned long Length);
+
 protected:
 	void FreeBindsIn();
 	void FreeBindsOut();

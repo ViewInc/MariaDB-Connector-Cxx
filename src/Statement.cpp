@@ -339,6 +339,18 @@ void Statement::SetConnection(Connection* ConIn)
 	Con = ConIn;
 }
 
+bool Statement::GetError(char* Buffer, unsigned long Length)
+{
+	unsigned int err = mysql_stmt_errno(MyStatement);
+	if (err != 0)
+	{
+		snprintf(Buffer, Length, "Error(%d) [%s] \"%s\"\n", mysql_stmt_errno(MyStatement),
+			mysql_stmt_sqlstate(MyStatement), mysql_stmt_error(MyStatement));
+	}
+
+	return err != 0;
+}
+
 void Statement::FreeBindsIn()
 {
 	for (unsigned int i = 0; i < NumBindsIn; i++)
