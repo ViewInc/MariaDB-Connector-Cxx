@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <new>
-#include "mariadb/mysql.h"
+#include "mysql.h"
 
 Bind::Bind()
 	: Data(NULL)

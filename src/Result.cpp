@@ -4,7 +4,7 @@
 #include <string.h>
 #include <new>
 #include <limits>
-#include "mariadb/mysql.h"
+#include "mysql.h"
 
 #ifndef ALLOW_CONVERSION
 #	define ALLOW_CONVERSION 0

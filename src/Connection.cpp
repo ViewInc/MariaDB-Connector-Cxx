@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "mariadb/mysql.h"
+#include <Transaction.h>
+#include "mysql.h"
 
 // Typical Visual Studio mess.
 #if defined(_MSC_VER) && _MSC_VER < 1900
@@ -233,4 +234,13 @@ void Connection::ShowMySQLError(st_mysql* mysql, char const* call)
 {
 	fprintf(stderr, "%s: Error(%d) [%s] \"%s\"\n", call,
 		mysql_errno(mysql), mysql_sqlstate(mysql), mysql_error(mysql));
+}
+
+TransactionRef Connection::create_transaction(isolation::level level, bool consistent_snapshot){
+    if (!IsConnected()) {
+        return TransactionRef();
+    }
+
+
+    return TransactionRef(new Transaction(this, consistent_snapshot));
 }

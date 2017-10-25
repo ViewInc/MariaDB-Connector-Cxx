@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Types.h"
+#include "Transaction.h"
 
 /** The main class of the MariaDB connection.
  *
@@ -9,37 +10,40 @@
  * @remarks If the Connection destructor is called, the connection is closed.
  * @author Arvid Gerstmann
  */
-class Connection
-{
-friend class Statement;
+class Connection {
+    friend class Statement;
+
+    friend class Transaction;
 
 public:
-	explicit Connection();
-	virtual ~Connection();
+    explicit Connection();
+
+    virtual ~Connection();
 
 private:
-	Connection(Connection const& cpy){};
-    Connection& operator=(Connection const& cpy){return *this;};
+    Connection(Connection const &cpy) {};
+
+    Connection &operator=(Connection const &cpy) { return *this; };
 
 public:
 
-	/** Connect to the specified server.
-	 *
-	 * @return Whether the connection attempt was successfull.
-	 */
-	bool Connect(char const* Host, char const* User, char const* Password, char const* DB, unsigned int Port);
+    /** Connect to the specified server.
+     *
+     * @return Whether the connection attempt was successfull.
+     */
+    bool Connect(char const *Host, char const *User, char const *Password, char const *DB, unsigned int Port);
 
-	/** Disconnects from the current connected server.
-	 *
-	 * @remarks Does nothing if not connected to a server.
-	 */
-	void Close();
+    /** Disconnects from the current connected server.
+     *
+     * @remarks Does nothing if not connected to a server.
+     */
+    void Close();
 
-	/** Returns the current status of the connection.
-	 *
-	 * @return Whether connected to MySQL server.
-	 */
-	bool IsConnected();
+    /** Returns the current status of the connection.
+     *
+     * @return Whether connected to MySQL server.
+     */
+    bool IsConnected();
 
     /** Set the default database.
      * The specified database will be used for any subsequent queries.
@@ -47,7 +51,7 @@ public:
      * @return Whether the selection was successfull.
      * @see https://dev.mysql.com/doc/refman/5.7/en/mysql-select-db.html
      */
-    bool SelectDatabase(char const* DatabaseName);
+    bool SelectDatabase(char const *DatabaseName);
 
     /** Executes a simple query, without expected result.
 	 *
@@ -56,17 +60,17 @@ public:
 	 * @return The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT),
 	 * or -1 on error.
 	 */
-	int Query(char const* QueryStr, unsigned long Length);
+    int Query(char const *QueryStr, unsigned long Length);
 
-	/** Executes a simple query, with expected results.
-	 *
-	 * @param QueryStr A valid SQL query.
-	 * @param Length The length of the SQL query string.
-	 * @param ResultOut The `Result` object where the result will be copied to.
-	 * @return The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT),
-	 * or -1 on error.
-	 */
-	int Query(char const* QueryStr, unsigned long Length, class Result* ResultOut);
+    /** Executes a simple query, with expected results.
+     *
+     * @param QueryStr A valid SQL query.
+     * @param Length The length of the SQL query string.
+     * @param ResultOut The `Result` object where the result will be copied to.
+     * @return The affected rows (UPDATE, DELETE, INSERT) or the rows in the result (SELECT),
+     * or -1 on error.
+     */
+    int Query(char const *QueryStr, unsigned long Length, class Result *ResultOut);
 
     /** Retrieves the last error as a formatted string.
      *
@@ -74,7 +78,7 @@ public:
      * @param Length The length of the supplied char buffer.
      * @return Wheter an error occured.
      */
-    bool GetError(char* Buffer, unsigned long Length);
+    bool GetError(char *Buffer, unsigned long Length);
 
     /** Retrieves the affected rows of the last query.
      *
@@ -92,7 +96,7 @@ public:
      * @return Whether the query was successfull.
      * @see https://dev.mysql.com/doc/refman/5.7/en/mysql-set-character-set.html
      */
-    bool SetCharacterSet(char const* CharacterSet, char const* Collation);
+    bool SetCharacterSet(char const *CharacterSet, char const *Collation);
 
     /** Retrieves a string providing information about the most recently executed statement.
      *
@@ -100,7 +104,7 @@ public:
      * @return String or NULL if no information is available.
      * @see https://dev.mysql.com/doc/refman/5.7/en/mysql-info.html
      */
-    char const* GetStatementInfo();
+    char const *GetStatementInfo();
 
     /** Returns the value generated for an `AUTO_INCREMENT` column by the previous `INSERT` or `UPDATE`.
      *
@@ -123,7 +127,7 @@ public:
      * @return Status string.
      * @see https://dev.mysql.com/doc/refman/5.7/en/mysql-stat.html
      */
-    char const* GetStatus();
+    char const *GetStatus();
 
     /** Returns the number of errors, warnings, and notes generated after the previous statement.
      *
@@ -140,13 +144,18 @@ public:
      * @return Length of the encoded string, or -1 on error.
      * @see https://dev.mysql.com/doc/refman/5.7/en/mysql-real-escape-string.html
      */
-    long EscapeString(char* Query, char const* String);
+    long EscapeString(char *Query, char const *String);
+
+    // Commit / rollback support
+    //
+    TransactionRef create_transaction(isolation::level level = isolation::repeatable_read, bool consistent_snapshot = true);
+
 
 
 public:
-	static void ShowMySQLError(struct st_mysql* MySQL, char const* Call);
+    static void ShowMySQLError(struct st_mysql *MySQL, char const *Call);
 
 protected:
-	struct st_mysql* MySQL;
-	bool bIsConnected;
+    struct st_mysql *MySQL;
+    bool bIsConnected;
 };
